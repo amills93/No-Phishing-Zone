@@ -17,5 +17,21 @@ This project is seen as significant as matches a number of goals of No Phishing 
 
 _D. Niroshan Atimorathanna, T. Shehan Ranaweera, R. A. H. Devdunie Pabasara, J. Rukshila Perera and K. Yapa Abeywardena, "NoFish; Total Anti-Phishing Protection System," 2020 2nd International Conference on Advancements in Computing (ICAC), 2020, pp. 470-475, doi: 10.1109/ICAC51239.2020.9357145._
 
+### Rule-based Phishing Detection Method
+
+This article opens with a summery of current phishing prevention tactics and tools, and then expands into a novel forked approach of features to help catch phishing attacks while browsing the web. This article clearly points out that previous research does not show any tools that are independent of search engine/ 3rd party data or are able to detect novel (zero-day) phishing attacks and are able to be used with any human language on a web browser. The features that were developed mimic the logic of the Support Vector Machine (SVM) Algorithm with decision trees when verifying different aspects of a webpage. The result was that this technique got a 98% success of identifying phishing attempts.
+
+The core takeaway from the article is that a successful phishing detection tool can be made to be independent of search engine or 3rd party data, be able to detect novel (zero-day) phishing attacks and be able to be used with any language on a web browser. As this is a novel invention at the time of publishing, there are limitations; non-HTML code cannot be ran through the tool, and that phishing websites are mimics of known safe websites (no novel websites made just for the attack). This is because the feature sets that are purposed comb though the DOM and extract all data from there. 
+
+Moghimi, M., & Varjani, A. Y. (2016). New rule-based phishing detection method. Expert Systems with Applications, 53(1), 231–242. https://doi.org/10.1016/j.eswa.2004.10.010 
+
+### Hidden URL investigation
+
+This article takes a deep dive on the specific issue of hidden/abbreviated/redirected URL phishing attacks. This is done by looking at all URLs that are listed on a webpage and then parsing down the URL into the different sections of the URL standard, and then investigating each part against a database of known good and bad domains. A directory of known expressions and words is a part of the web plug in and is used to check a new URL against. A publicly available package called Enchant is used to parse out strings of words into the different sub words that are used. This article takes a couple new approaches (Word Vectors, Nuro-language pathways, and a hybrid of the two), along with picking up where old tools are found lacking. Namely, URL scanning for random characters, combined word usage, cybersquatting, and typosquatting, to help identify malicious URLs. 
+
+As hidden/shortened/redirected URL phishing attacks is on the rise, this article shows that a novel tool can be made/used to detect and label phishing websites and URLs. The article does make a good point that there is no worldwide acceptable test for phishing systems or list that can be used to test new tools against, could one be made for research and testing purposes? It is noted that this method does take some time to work, and that with the use of deep learning could be made much faster as the investigation of each URL can then be shortened dramatically.
+
+Sahingoz, O. K., Buber, E., Demir, O., & Diri, B. (2019). Machine learning based phishing detection from urls. Expert Systems with Applications, 117, 345–357. https://doi.org/10.1016/j.eswa.2018.09.029 
+
 
 # Technical Plan
