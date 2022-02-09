@@ -1,0 +1,41 @@
+2.9.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+
+Think about different tasks that need to happen and put them on the task tracker.
+Make an issue, assign it to someone, and then when they are finished close the task and then have them commit the changes to the Git Repo.
+Current cards are top level issues -  convert them with the convert tool and then break them down. 
+	This can be a few different issues from each of the larger issues.
+
+Issues board and project board should be merged. Make them high level issues and then sub-level tasks.
+More literature review:
+-	Sources for project methodology (browser extensions, chrome). 
+-	Good current sources but Dr. Hale wants to do more.
+Anything in the Document Object Model (DOM) and Browser Object Model (BOM). 
+Limit scope of project to any thing you can read off of from the BOM (history, JS particulars, user events, etc.). 
+	Depending on the things we want to look at with this browser extension, then we can figure out what we specifically want to do.
+
+
+What do we need to do for next week?
+-	Have at least 8-9 literature review articles up on GitHub.
+o	Drop summaries into a markdown file 
+-	Risk list
+-	Technical plan
+o	We can put in to successively improve on the browser extension.
+o	How will we decide if the extension will work right? Do a VM that uses google to pull up phishing sites and then test the extension?
+
+-	Executive plan
+-	Video for deliverable, does not have a specific format that we need to fit. 
+
+By end of next week (2.18) write a hello world browser extension. Chrome developer and make one just to learn what is available and how that side of the project would work in general. 
+https://developer.chrome.com/docs/extensions/mv3/getstarted/
+
+
+Dylan – Post summeries to github and then go through the above browswer extension guide.
+Adam -  Post issues to the github.
+Group -  decide what we want the browser extension to do. At end of Summery markdown file, list out the subjects you think we should pursue and we will vote as a group on what do to.
+
