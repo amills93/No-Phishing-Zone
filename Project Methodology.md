@@ -33,5 +33,21 @@ As hidden/shortened/redirected URL phishing attacks is on the rise, this article
 
 Sahingoz, O. K., Buber, E., Demir, O., & Diri, B. (2019). Machine learning based phishing detection from urls. Expert Systems with Applications, 117, 345–357. https://doi.org/10.1016/j.eswa.2018.09.029 
 
+### ReputationBox
+
+ReputationBox is a client or server-based tool designed to integrate with a mail server in order to analyze email reputation based on the people, topic, or action features. People features focus on the relationship between the sender and recipient and checks to see if the sender has received mail from the recipient before and looks at who else is addressed in the email and the average time of reply. Topic features focus on the topics and activities discussed in the email using a word-space model. The action feature acts as the recommendation feature and will propose certain actions to the user based on the contents of the email. 
+
+The client version is installed via a plugin inside the user’s mailbox and will analyze mail as it is received or as a server which is configured to periodically scan email. Once the mail is scanned the tool will verify the sender’s authenticity (reputation), store the results, and present them to the user with a set of recommended actions. 
+The paper did not go into the technical details of the ReputationBox tool however it does propose several ideas of what our tool could possibly do. The project is simple and focuses on a few key metrics (sender/receiver communication, use of a word space model) that are going to be important when we start planning out features for our tool. The recommendation feature highlighted a potential option that our tool could do when it identifies a piece of malicious mail.
+
+D. Jayakody and G. Dias, "ReputationBox: A system to analyse importance of emails and reputation of email senders," 2014 14th International Conference on Advances in ICT for Emerging Regions (ICTer), 2014, pp. 255-255, doi: 10.1109/ICTER.2014.7083913.
+
+### New Filtering Approaches for Phishing Emails
+
+The paper focuses on using a content-based filtering approach to detect several common tricks known for producing phishing attacks. The filtering approach would identify and label emails as spam, ham (legitimate), or phishing. The article highlights the differences between spam and phishing emails by noting that spammers simply want to 'deliver a message pretending to be from a reputable sender' and often use typos to bypass spam filters. The paper discussed two types of phishing attacks, malware-based and deceptive, but focused on deceptive phishing attacks. Deceptive phishing attacks can be broken into six categories: Social engineering, mimicry, email spoofing, URL hiding, Invisible content, and Image content. 
+
+The article presented an interesting idea of breaking phishing emails into two categories: Deceptive Phishing and Malware Based Phishing. Malware-based phishing attacks include the use of malicious software spread by a deceptive email while with deceptive phishing the phisher pretends to come from a reputable institution. Typically, the phisher will coerce or trick the user into clicking a malicious link that takes the user to a fraudulent site. The article also highlighted how blacklisting and whitelisting is not always the best approach due to how frequent phishing sites are created and how whitelists can produce false positives. 
+
+Bergholz, A., De Beer, J., Glahn, S., Moens, M.-F., Paaß, G., & Strobel, S. (2010). New filtering approaches for phishing email. Journal of Computer Security, 18(1), 7–35. https://doi-org.leo.lib.unomaha.edu/10.3233/JCS-2010-0371
 
 # Technical Plan
