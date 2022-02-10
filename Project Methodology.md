@@ -59,5 +59,15 @@ This is currently commercially available and supported by google chrome, which I
 “Advanced Threat Defense Protects Against Phishing Emails.” DuoCircle, www.duocircle.com/advanced-threat-defense. Accessed 10 Feb. 2022.
 Source url: https://www.duocircle.com/phishing-protection/advanced-threat-defense-helps-your-organization-mitigate-phishing-scams
 
+### Drive-by-download Malware
+This article is a white script publication on the using of social network analysis parameters to balance between browser usability and malware exposure. According to the article, Drive-by-download malware infects computers without the user's knowledge, and it can happen simply by visiting a website with harmful content. This can pose a serious threat to the user's most sensitive data.
+
+According to author, most famous programs, for example, Firefox, Internet Explorer and Maxthon have expansions that block JavaScript, Flash, and other executable substance. A few augmentations around the world square all unique substance, and in others the client needs to explicitly empower the substance for each site (s)he trusts. Since most of the website pages today contain dynamic substance, impairing them harms client experience and page convenience, and that keeps numerous clients from introducing security expansions.
+
+I see this as relevant by helping the team narrow approach to what the scope of no phishing zone should cover in terms of Our framework looks at the URL that shows up in the location bar of the program and every one of the internal HTML URL notorieties, and provided that every one of them have a standing more prominent than our foreordained limit, it denotes the page as trusted.
+
+WhiteScript: Using social network analysis parameters to balance between browser usability and malware exposure. (2011, January 1). ScienceDirect. https://www.sciencedirect.com/science/article/pii/S0167404810000842
+
+
 
 # Technical Plan
