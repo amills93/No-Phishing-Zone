@@ -50,4 +50,14 @@ The article presented an interesting idea of breaking phishing emails into two c
 
 Bergholz, A., De Beer, J., Glahn, S., Moens, M.-F., Paaß, G., & Strobel, S. (2010). New filtering approaches for phishing email. Journal of Computer Security, 18(1), 7–35. https://doi-org.leo.lib.unomaha.edu/10.3233/JCS-2010-0371
 
+### DuoCircle 
+DuoCircle is an enterprise-wide solution, designed as an advanced threat defense anti-no phishing tool that helps business organization to mitigate against phishing scams. According to the author, every day, there is an increasing number of phishing and spear fishing threats, which cause disruption and damaging loss of revenue to companies and target individuals worldwide.
+
+These schemes are designed to trick business organization staff and target individuals into disclosing passwords, security credentials, corporate secrets, and other sensitive information that would normally remain private. The vast majority of hacking assaults against organizations and people today are the result of so-called phishing scams, especially with the pandemic effect, the trend is on the rise daily. 
+
+This is currently commercially available and supported by google chrome, which I find very relevant and similar to our proposed solution and might provide insights into implementation, design guide for our proposed “No Phishing Zone” project and deployment.
+“Advanced Threat Defense Protects Against Phishing Emails.” DuoCircle, www.duocircle.com/advanced-threat-defense. Accessed 10 Feb. 2022.
+Source url: https://www.duocircle.com/phishing-protection/advanced-threat-defense-helps-your-organization-mitigate-phishing-scams
+
+
 # Technical Plan
