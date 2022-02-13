@@ -14,6 +14,11 @@ Due to the length of the semester we are limited to a little over 12 weeks of de
 ### No experience with Google Chrome Extension Development `TODO: impact x likelihood`
 Our team has no knowledge in the development of Google Chrome Extensions however we will mitigate the risk by taking the introductory courses provided by Google on how to develop Chrome Extensions. We will also be using the principals of Agile for our software development and project management so we can dynamically react to change in the event developing a Chrome Extension proves more difficult than what we originally planned on. Google and the internet provide plenty of resources so we can mitigate the risk.
 
+|Risk name (value)  | Impact     | Likelihood | Description |
+|-------------------|------------|------------|-------------|
+|Some risk (40) | 8 | 5 | Some description  |
+
+
 # Resources Needed
 
 The following resources have been identified as critical to the success of this project.
