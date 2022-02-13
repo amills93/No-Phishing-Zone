@@ -16,4 +16,13 @@ Our team has no knowledge in the development of Google Chrome Extensions however
 
 # Resources Needed
 
-Every team needs *something* to pull off their project. Clearly identify the technologies and products involved in your project.
+The following resources have been identified as critical to the success of this project.
+
+|Resource  | Dr. Hale needed? | Investigating Team member | Description |
+|-------------------|---------|---------------------------|-------------|
+|Research databases| No | All | UNO Library allows access to critical resource databases such as IEEE and JSTOR  |
+|Programmning IDE | No | Adam | All members will need access to a useful IDE for beginner web development |
+|Github  | No | Adam | Github repository will be needed to compile production code and project documents |
+|Chrome Web Browser  | No | All | All members will need access to Chrome and its developer mode |
+|Web Development Expertise  | Yes | All | Throughout devlopment, Dr Hale will be a key advisor on roadblocks and best practices |
+
