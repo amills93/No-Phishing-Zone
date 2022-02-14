@@ -15,10 +15,10 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 |Product Ineffectiveness (16) | 4 | 4 | Despite earnest intentions, it is possible for an end product to not reach the desired usage functionality as originally intended  | 
 |Chrome Extension Changes (40) | 10 | 4 | Should Google change their coding syntax, usage rights, or developer mode availability, the project would need to pivot elsewhere  |
 
-### Limited Timeline `TODO: impact x likelihood`
+### Limited Timeline 
 Due to the length of the semester we are limited to a little over 12 weeks of development time for our extension. In order to mitigate this risk we will utilize the principles of Agile for our software development and project management. Agile gives us the ability to monitor the progress of our project while giving us the ability to create and respond to change. With the agile method we will be able to monitor the progress of our project and adjust the scope as needed due to the timeline constraint of the semester.
 
-### Lack of Web Dev Experience `TODO: impact x likelihood`
+### Lack of Web Dev Experience
 Our team has no knowledge in the development of Google Chrome Extensions however we will mitigate the risk by taking the introductory courses provided by Google on how to develop Chrome Extensions. We will also be using the principals of Agile for our software development and project management so we can dynamically react to change in the event developing a Chrome Extension proves more difficult than what we originally planned on. Google and the internet provide plenty of resources so we can mitigate the risk.
 
 
