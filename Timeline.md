@@ -1,14 +1,14 @@
-###Proposed Project Timeline:
+### Proposed Project Timeline:
 
-##1. Research
+## 1. Research
 
-##2. Familiarize ourselves with Extension Dev.
+## 2. Familiarize ourselves with Extension Dev.
 
-##3.  Make "Hello World" Ext to set as baseline.
+## 3.  Make "Hello World" Ext to set as baseline.
 
-##4. Milestone 1
+## 4. Milestone 1
 
-##5. Project Idea – will be add on to Hello World Ext.
+## 5. Project Idea – will be add on to Hello World Ext.
 	a. read in webpage if it is web-based email client.
     i. this will require an URL check of the webpage by the ext. This will likely be part of a checklist of items that the ext will run through before engaging in page examination.
 	b. Ext will parse out email contents, looking for suspicious language or links to other websites.
@@ -17,7 +17,7 @@
 		iii. No remediation of any kind will be offered by the application.
 		iv. any external links in the email will be identified, checked, and verified. 
 
-##6. Milestone 2
+## 6. Milestone 2
 	a. Establish setup environments
 	b. Research paper outline – write rough draft
 	c. Visual representation of efforts
@@ -27,7 +27,7 @@
 		ii. document increments from this milestone
 		iii. Bind tasks, artifacts, and documentation into one cohesive unit. 
 
-##7. Milestone 3
+## 7. Milestone 3
 
   a. Project Realization Progress Report
   b. Final Report – final efforts of working model/project. 
