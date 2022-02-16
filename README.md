@@ -64,4 +64,5 @@ The following resources have been identified as critical to the success of this 
 |Github  | No | Adam | Github repository will be needed to compile production code and project documents |
 |Chrome Web Browser  | No | All | All members will need access to Chrome and its developer mode |
 |Web Development Expertise  | Yes | All | Throughout devlopment, Dr Hale will be a key advisor on roadblocks and best practices |
+|Test Dataset  | No | All | Once the extension is developed, we will need test emails to test the extensions functionality.|
 
