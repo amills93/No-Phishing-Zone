@@ -3,7 +3,7 @@
 - [Executive Project Summary](#executive-project-summary)
 - [Technical Plan](#technical-plan)
 - [Risk List](#risk-list) 
-- [Project Methodology](#project-methodology)
+- [Project Methodology](Project%20Methodology.md#literature-review)
 - [Resources & Technology needed](#resources-needed)
 
 # Executive Project Summary
