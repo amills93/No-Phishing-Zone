@@ -74,5 +74,3 @@ In 2020, Google announced that it would implement several processes to begin wee
 The article is relevant to our project because we are creating a Google Chrome extension. It provides a set of rules that we will need to ensure our extension complies with. Since Google Chrome disallows multiple similar extensions, we will need to identify any phishing extensions currently present in the Google Chrome store. It is important to note that two of the developer guidelines revolved around the extension sending unwanted messages or opening another website. This will play a key role in how we develop the notification/recommendation part of our extension. When designing the extension, we will need to ensure that extension complies with the developer guidelines, so our application does not get removed from the Chrome Store. 
 
 Keizer, G. (2020). Google to expel spammy, pointless Chrome extensions at end of August. Computerworld (Online Only), 1.
-
-# Technical Plan
