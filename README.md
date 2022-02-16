@@ -2,6 +2,7 @@
 
 - [Executive Project Summary](#executive-project-summary)
 - [Technical Plan](#technical-plan)
+- [Proposed Project Timeline](#proposed-project-timeline)
 - [Risk List](#risk-list) 
 - [Project Methodology](Project%20Methodology.md#literature-review)
 - [Resources & Technology needed](#resources-needed)
@@ -20,8 +21,6 @@ The specific goals for No-Phishing-Zone are to deliver a tool that:
 *	Very that the sender of the email is not spoofing an address
 *	Increase the overall safe browsing habits of a user, without having the ability to walk them through a cybersecurity training course
 
-
-
 # Technical Plan
 
 As the initial stages of research concludes, our team will move toward developing an introductory “Hello World” Google Chrome Extension, so each member of the team can familiarize themselves with Google Extension Development. Once the initial “Hello World” extension has been completed, we begin working on the first part of our extension, which is to read in the currently opened webpage of the user. Once the webpage is read, No-Phishing-Zone will identify if the currently open page is a web-based mail client (i.e., Outlook.com, Yahoo.com, mail.google.com) and will begin processing the data on the webpage.  Chrome extensions can be set up to run upon invocation of extension’s icon on the browser or set to run automatically in the background.  The previously described functionality of running only when the user is on a web client domain will require an initial URL check from the extension to know whether to continue with the rest of the extension’s processes.
@@ -34,7 +33,7 @@ Our extension will work as an alert tool and is not designed to block or prevent
 
 ### Proposed Project Timeline
 
-See Timeline.md for further detail
+See [Timeline.md](Timeline.md#proposed-project-timeline) for further detail
 
 ![image](https://user-images.githubusercontent.com/89640335/154189951-766c152d-0372-494f-8ab0-3187970ab68b.png)
 
