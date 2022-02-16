@@ -6,6 +6,8 @@
 - [Risk List](#risk-list) 
 - [Project Methodology](Project%20Methodology.md#literature-review)
 - [Resources & Technology needed](#resources-needed)
+- [Vid Grid Presentation](https://use.vg/eRSDe9)
+- [PowerPoint Presentation](Presentation%20Outline.pptx)
 
 # Executive Project Summary
 
