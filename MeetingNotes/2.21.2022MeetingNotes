@@ -1,0 +1,23 @@
+2.21.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+
+-	We don’t have many things to talk about today. Have not been able to get any answers from Dr. Hale since turning in the Milestone 1 deliverable.
+
+-	Everyone has done the Hello World Ext builder.
+
+-	Define project structure for ext. (popup HTML, popup JS, etc).
+  o Where would we put different parts of the ext? Which documents do we need to do that in? Ask Dr. Hale and get his recommendations.
+  o	We will have to do this in JS.
+  o	How  will we determine if the web mail client is compatible with the ext? 
+    - Outlook, Yahoo, MSN…
+
+TO-DO
+1.	Need to have more questions and a general roadmap of the next sprint for the project. 
+2.	Build out file structure of how the ext will work. 
+    -	Base this on the Hello World baseline, and then breakup the different functions based off that. 
+3.	Come up with ideas for how the ext will flow. IE load web page, read through indices, check specific indices against database, … 
