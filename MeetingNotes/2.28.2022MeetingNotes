@@ -1,0 +1,27 @@
+2.28.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+	Chris found that Gmail is SUPER busy on the DOM, and it will be a task to get something parsed from it that is useful. We are looking for a library or guide on how to filter this out. 
+	
+Content.js does a lot of the parsing work, the data is gathered with another file and then put into the different parsings by the content.js file.
+This is a great source on how we will likely do what we are wanting to do: https://stackoverflow.com/questions/19758028/chrome-extension-get-dom-content
+Chris sent the group the dom.txt file on 2/26/2022 via Slack, to see what we will be looking at. 
+Chris made a fork and Adam will merge it to the GitHub Rep.
+	This fork from Christ is the base idea that we will start with and build on from there. 
+
+ISSUES
+	DOM is not very human readable. Need a better way to read through it.
+	DOM tags are very confusing need to find a better way to filter through them. 
+	Need a python to JS converter for web apps, that would make this so much easier. 
+
+TO-DO
+1.	Ask Dr.Hale – Is there a good way to find a “subject” or a “email body” tag? Currently the DOM is just a nightmare. 
+  a.	Or is there a better way to make the DOM more human readable?
+  b.	Do the tags for different things always change (currently they look like a hashed value) and are not descriptive of anything they do. Do these always stay the same, and if not is there a way to get the salt value or hash key for them?
+2.	We have the basic idea for the EXT down, but we are hitting this stumbling block. The obfuscation from Google for Gmail is the issue we are running into. 
+3.	Look for any code libraries or repos that have the above questions answered already. 
+4.	Look for any easier way to decipher this.
