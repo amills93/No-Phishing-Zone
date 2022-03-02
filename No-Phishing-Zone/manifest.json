@@ -5,7 +5,7 @@
 
 "background": {
     "persistent": false,
-    "scripts": ["background.js"]
+    "scripts": ["background.js", "jQuery.js"]
 },
 "content_scripts": [{
     "matches": ["<all_urls>"],
