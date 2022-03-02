@@ -1,0 +1,30 @@
+3.2 .2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+
+	Comments from Dr.Hale – Need to integrate our literature review into the project a little bit more. Include what others are doing in this. Other then that, Dr. Hale says we are doing really well.
+	Where are we now?
+  
+	Issues parsing the DOM – Just a mess of code and names, any other easy way to do this? Any libraries that you recommend that we can reference?
+	Dr.Hale – That is not surprising. But we can work with it by looking at the 
+  
+Need to have JQuery for this ext to run. Need to have it refenced and saved at the beginning of the ext.
+
+    JQuery filter function - https://api.jquery.com/filter/
+    JQuery CheatSheet - https://oscarotero.com/jquery/
+	
+  Anything with a : in front of it is called a psydo-selector
+
+Q: Do the tags for different things always change (currently they look like a hashed value) and are not descriptive of anything they do. Do these always stay the same, and if not is there a way to get the salt value or hash key for them?
+A: IT looks like that is not the case, and that the tag names are obfuscated, but not a human readable set up. IE. “nH aHU” always seems to be the email header. 
+JQuery selectors can also be used to do animations. 
+
+Here is a lab on how to use JQuery selectors that Dr. Hale gave us, he uses this in one of his classes.
+	http://web.mit.edu/6.813/www/sp16/labs/lab2-javascript-jquery/
+	https://mlhale.github.io/CYBR8470/slides/intro-to-clientside-lecture.pdf
+
+Milestone 2 is the pretty much the same that is located on the course Github. Dr.Hale will post this on Canvus soon. Tentative due date is 4/8? 
