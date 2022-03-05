@@ -1,20 +1,15 @@
-function wait(ms) {
-    var defer = $.Deferred();
-    setTimeout(function() { defer.resolve(); }, ms);
-    return defer;
-};
 function doStuffWithDOM(domContent) {
-//    console.log("I received the following DOM content:\n" + domContent);
-//    console.log(jQuery);
-  // $ - Tell jQuery to filter out only p tags. Selector syntax
-
-      // Filters text for a keyword
-//    console.log($(domContent).filter(":contains('redfin')"))  //Insert JQuery Selector
-      // Search for class="nH aHU" which shows the header
-      console.log($(domContent).filter("div.aHU"));
-
-//    alert("I received the following DOM content:\n" + domContent);
     chrome.extension.getBackgroundPage().domContent = domContent;
+
+    /* Waits for the domContent page to fully load the DOM
+    before executing the code below */
+    $(domContent).ready(function() {
+      /* Finds all divs with class="nH aHU" class and outputs the
+       inner text to the console. This outputs the body of a gMail email */
+      console.log($(domContent).find("div.nH.aHU").text());
+    }
+  );
+
 }
 
 chrome.tabs.onUpdated.addListener(function(id,changeInfo,tab){
