@@ -2,9 +2,13 @@
 
 - [Executive Project Summary](#executive-project-summary)
 - [Technical Plan](#technical-plan)
+- [Proposed Project Timeline](#proposed-project-timeline)
 - [Risk List](#risk-list) 
 - [Project Methodology](Project%20Methodology.md#literature-review)
 - [Resources & Technology needed](#resources-needed)
+- [Vid Grid Presentation](https://use.vg/eRSDe9)
+- [PowerPoint Presentation](No%20Phishing%20Zone%20M1%20Presentation.pptx)
+- [Enviroment Setup](#Enviroment-Setup)
 
 # Executive Project Summary
 
@@ -20,8 +24,6 @@ The specific goals for No-Phishing-Zone are to deliver a tool that:
 *	Very that the sender of the email is not spoofing an address
 *	Increase the overall safe browsing habits of a user, without having the ability to walk them through a cybersecurity training course
 
-
-
 # Technical Plan
 
 As the initial stages of research concludes, our team will move toward developing an introductory “Hello World” Google Chrome Extension, so each member of the team can familiarize themselves with Google Extension Development. Once the initial “Hello World” extension has been completed, we begin working on the first part of our extension, which is to read in the currently opened webpage of the user. Once the webpage is read, No-Phishing-Zone will identify if the currently open page is a web-based mail client (i.e., Outlook.com, Yahoo.com, mail.google.com) and will begin processing the data on the webpage.  Chrome extensions can be set up to run upon invocation of extension’s icon on the browser or set to run automatically in the background.  The previously described functionality of running only when the user is on a web client domain will require an initial URL check from the extension to know whether to continue with the rest of the extension’s processes.
@@ -32,7 +34,11 @@ Once the email address has been verified the extension will begin analyzing the 
 
 Our extension will work as an alert tool and is not designed to block or prevent the user from performing an action. It is designed as a tool that can be used by standard users to help them safely browse and read emails daily. We plan on using JavaScript, HTML, and CSS as our tech stack since it is widely supported in Google Chrome Extension Development.  JavaScript will be used to process and parse the webpage while HTML and CSS will be used for the notification feature. We will need to be careful and follow Google Chromes Extension Develop guidelines in how we notify the user and ensure we are not creating more spam.
 
+### Proposed Project Timeline
 
+See [Timeline.md](Timeline.md#proposed-project-timeline) for further detail
+
+![image](https://user-images.githubusercontent.com/89640335/154189951-766c152d-0372-494f-8ab0-3187970ab68b.png)
 
 # Risk list
 
@@ -61,4 +67,11 @@ The following resources have been identified as critical to the success of this 
 |Github  | No | Adam | Github repository will be needed to compile production code and project documents |
 |Chrome Web Browser  | No | All | All members will need access to Chrome and its developer mode |
 |Web Development Expertise  | Yes | All | Throughout devlopment, Dr Hale will be a key advisor on roadblocks and best practices |
+|Test Dataset  | No | All | Once the extension is developed, we will need test emails to test the extensions functionality.|
+
+
+
+# Enviroment Setup
+
+Regardless of the type of project you are working on, you will need some work environments. You should determine tooling needs, document their usage/installation/configuration and include that information in your project repostiory. he instructions should provide a clear pathway to setting up and configuring needed tools to begin working on your project. For maker-based projects this might be software dependencies and coding libraries or establishing some build files (in something like Docker). For breaker-based projects it might be creating VMs or docker containers to containerize the target of investigations.
 

@@ -1,0 +1,36 @@
+2.23.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+
+	EXT will have to be in HTML, JS, and CSS as that is what the browser speaks.
+	We can import resources, just like we would on a normal website.
+	https://github.com/search?q=chrome+extension
+https://github.com/GoogleChrome/chrome-extensions-samples
+We don’t have to start from scratch, but we can start with a framework that is already used by someone else, but we can just cite them as source and use that as a guide to build on. 
+-	If we go that way, the web apps will have (view, ember, react, angular) a tool kit that we can use to get the ext started. The tool kit will compile it and then we can move it into the ext that we are working on. 
+
+Need more literature review sources? - Only as we come across issues we do not know how to fix. 
+
+Feedback on working hypothesis:
+-	May want to further refine scope to just one webmail client. 
+-	Open up Gmail, and view source to see how the mail client reads in the emails to get an idea of what to look for with the ext.
+o	URLs are usually dynamically running to fetch the email from the email API.
+o	May have to run this check a few times as time goes by.
+o	Make this modular, this is to not bind tightly to one specific email client and can tailor itself to each of the mail clients.
+-	How are we interacting with the data?
+-	We need to understand that there may be countermeasures by Google or the bad guys that may be issues with the way that the EXT runs/checks.
+ 
+Steps to EXT?
+	Load > Analyze > Mark up the bad URLs.
+	We will want the EXT to only read the current message in the inbox, that could be an invocation that we can base the trigger event on for the EXT to run. 
+Two options on how the final tool will work.
+a.	Highlight things in the mark up. This would be finding the element in the inspection and then putting a boarder around the URL.
+b.	Have a layer over the website (z-layer) that will just overlay the place where the markup box will need to go. Canvas Element is the thing to look for that. Canvas Space tool. 
+
+TO-DO
+1.	Write a simple parser for a simple HTML page, so that we can prove that it is done by the EXT. Use this as the basis of the framework for the ext to be tested against. 
+2.	Decide how the minimum viable components will work and then divide up the work to the team. Use the GitHub Issues interface for this. 
