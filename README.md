@@ -8,6 +8,7 @@
 - [Resources & Technology needed](#resources-needed)
 - [Vid Grid Presentation](https://use.vg/eRSDe9)
 - [PowerPoint Presentation](No%20Phishing%20Zone%20M1%20Presentation.pptx)
+- [Enviroment Setup](#Enviroment-Setup)
 
 # Executive Project Summary
 
@@ -67,4 +68,10 @@ The following resources have been identified as critical to the success of this 
 |Chrome Web Browser  | No | All | All members will need access to Chrome and its developer mode |
 |Web Development Expertise  | Yes | All | Throughout devlopment, Dr Hale will be a key advisor on roadblocks and best practices |
 |Test Dataset  | No | All | Once the extension is developed, we will need test emails to test the extensions functionality.|
+
+
+
+# Enviroment Setup
+
+Regardless of the type of project you are working on, you will need some work environments. You should determine tooling needs, document their usage/installation/configuration and include that information in your project repostiory. he instructions should provide a clear pathway to setting up and configuring needed tools to begin working on your project. For maker-based projects this might be software dependencies and coding libraries or establishing some build files (in something like Docker). For breaker-based projects it might be creating VMs or docker containers to containerize the target of investigations.
 
