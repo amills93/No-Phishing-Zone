@@ -1,5 +1,7 @@
-// console.log("Is Jquery Here" + $)
-// document.write(chrome.extension.getBackgroundPage().domContent);
+/* Attempts to output variables from background.js to the Extension Popup */
+ document.write(chrome.extension.getBackgroundPage().senderName);
+ document.write(chrome.extension.getBackgroundPage().senderEmail);
+
 //
 // var tab_title = '';
 // function display_h1 (results){
