@@ -10,7 +10,7 @@ Be productive, work towards completing your process, and document what you do. D
 # Progress Report (insert date here)
 ## Overview
 (insert brief overview of efforts made)
-Upon first identifying what the project could be, it was divided into several core technical hurdles
+After first identifying what the project could be, it was then divided into several core development modules.
 
 ## Outcomes
 (brief overview of outcomes - what did you achieve?)
@@ -20,9 +20,11 @@ also list them out like this:
 * outcome 2
 
 ## Hinderances
-(insert brief discussion of challenges encountered)
+The intial challenge discovered was the extreme levels of obfuscation involved in modern web email services.  Our original assumptions about the human readability of such webmail services were a notable setback.  The DOM, once ingested, is not casually readable but needed further understanding of web development as well as better tooling for our development.  The tags within the DOM, even if readable, are unintuitive to a novice and thus required better tooling such as jQuery to filter through them.  The technical nature of ingesting the FROM email address of a given email also proved to be more difficult than imagined due to the intense obfuscation in the online mail client.
 
 ## Ongoing Risks
+
+The table below is an updated version of what we first proposed in Milestone 1
 
 |Risk name (value)   | Impact     | Likelihood | Description |
 |-------------------|------------|------------|-------------|
