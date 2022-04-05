@@ -1,6 +1,6 @@
 /* Attempts to output variables from background.js to the Extension Popup */
- document.write(chrome.extension.getBackgroundPage().senderName);
- document.write(chrome.extension.getBackgroundPage().senderEmail);
+ // document.write(chrome.extension.getBackgroundPage().senderName);
+ // document.write(chrome.extension.getBackgroundPage().senderEmail);
 
 //
 // var tab_title = '';
