@@ -3,18 +3,18 @@
 - [Executive Project Summary](#executive-project-summary)
 - [Technical Plan](#technical-plan)
 - [Proposed Project Timeline](#proposed-project-timeline)
-- [Risk List](#risk-list) 
+- [Risk List](#risk-list)
 - [Project Methodology](Project%20Methodology.md#literature-review)
 - [Resources & Technology needed](#resources-needed)
 - [Vid Grid Presentation](https://use.vg/eRSDe9)
 - [PowerPoint Presentation](No%20Phishing%20Zone%20M1%20Presentation.pptx)
-- [Enviroment Setup](#Enviroment-Setup)
+- [Environment Setup](#Enviroment-Setup)
 
 # Executive Project Summary
 
 Phishing, smishing, vishing… these attacks are often among the most simplistic to perform by malicious actors, and yet they can often have the most damaging consequences. Ransomware is on the rise, especially in the COVID-19 pandemic era, but did you know that a huge portion of ransomware attacks start with a simple phish? Most social engineering attacks follow the shotgun approach, meaning the attacker likes to send as many of them as possible in order to get a catch. Between a lack of focus and a lack security training, the average Joe is unlikely to spot the difference between a fake link and a real one.  
 
-In a large business organization, an end-user might be instructed to undergo security awareness training courses to instill safe practices for working in the digital age.  But apart from those people, the average person does not receive any kind of training.  What if we could bridge this knowledge gap with security awareness tooling? 
+In a large business organization, an end-user might be instructed to undergo security awareness training courses to instill safe practices for working in the digital age.  But apart from those people, the average person does not receive any kind of training.  What if we could bridge this knowledge gap with security awareness tooling?
 
 No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used social engineering tricks and identify suspicious sending domains, language, key triggers, and perform link validation while a user browses the internet. No-Phishing-Zone will flag those suspicious items and notify the user of the malicious intent leaving the option to continue up to the user. Often users are merely trying to live their lives and do things as quickly as possible, so any tool that helps them stay safe is a good one.  No-Phishing-Zone is meant to supplement a user’s safe browsing habits and catch suspicious behaviors which may have slipped by them.
 
@@ -45,12 +45,12 @@ See [Timeline.md](Timeline.md#proposed-project-timeline) for further detail
 |Risk name (value)   | Impact     | Likelihood | Description |
 |-------------------|------------|------------|-------------|
 |Limited Timeline (24) | 8 | 3 | Project scope exceeds time considerations, see below  |
-|Lack of Web Dev Experience (45) | 9 | 5 | As web development novices, problems might arise from this lack of expereince, see below  |
+|Lack of Web Dev Experience (45) | 9 | 5 | As web development novices, problems might arise from this lack of experience, see below  |
 |Scheduling Issues (20) | 5 | 4 | With each member having active personal, academic, and work lives, there might be issues coming together to meet and work |
-|Product Ineffectiveness (16) | 4 | 4 | Despite earnest intentions, it is possible for an end product to not reach the desired usage functionality as originally intended  | 
+|Product Ineffectiveness (16) | 4 | 4 | Despite earnest intentions, it is possible for an end product to not reach the desired usage functionality as originally intended  |
 |Chrome Extension Changes (40) | 10 | 4 | Should Google change their coding syntax, usage rights, or developer mode availability, the project would need to pivot elsewhere  |
 
-### Limited Timeline 
+### Limited Timeline
 Due to the length of the semester we are limited to a little over 12 weeks of development time for our extension. In order to mitigate this risk we will utilize the principles of Agile for our software development and project management. Agile gives us the ability to monitor the progress of our project while giving us the ability to create and respond to change. With the agile method we will be able to monitor the progress of our project and adjust the scope as needed due to the timeline constraint of the semester.
 
 ### Lack of Web Dev Experience
@@ -71,7 +71,13 @@ The following resources have been identified as critical to the success of this 
 
 
 
-# Enviroment Setup
+# Environment Setup
 
-Regardless of the type of project you are working on, you will need some work environments. You should determine tooling needs, document their usage/installation/configuration and include that information in your project repostiory. he instructions should provide a clear pathway to setting up and configuring needed tools to begin working on your project. For maker-based projects this might be software dependencies and coding libraries or establishing some build files (in something like Docker). For breaker-based projects it might be creating VMs or docker containers to containerize the target of investigations.
-
+No-Phishing-Zone is a Google Chrome Extension that requires the Google Web Browser and Google Mail account. The application was designed to parse the contents of Gmail emails and identify potential malicious or phishing links and highlight them `red` if malicious, `green` if good, or `yellow` if unknown. While the extension is in development it will not be in the Google Chrome Extension Store. The instructions below will walk you through enabling `developer` mode, for more information on Chrome Development Mode refer to the [Google Chrome Documentation](https://developer.chrome.com/docs/extensions/mv3/faq/). To install the Google Chrome Web Browser proceed to the Google [Chrome Website](https://www.google.com/chrome/index.html?msclkid=f61664c0b52a11eca13a87e11c8e1852) and follow the instructions to install the browser. Once installed follow the steps below:
+  1. Clone the No-Phishing-Zone GitHub Repository `git clone https://github.com/amills93/No-Phishing-Zone.git`
+  2. Open the Google Chrome Web browser
+  3. Navigate to the Chrome Extension Page `chrome://extensions/`
+  4. In the upper right hand corner enable `Developer Mode`
+  5. Select `Unpack Extension`
+  6. When File Explorer opens navigate to and select the `No-Phishing-Zone` folder in the `No-Phishing-Zone` GitHub folder
+  7. Once the extension is enabled navigate to a Google Mail (Gmail) Account and open an email
