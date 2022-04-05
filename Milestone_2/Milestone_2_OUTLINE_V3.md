@@ -1,4 +1,4 @@
-##Summery Argument of the paper:
+## Summery Argument of the paper:
 -	Will cover main Idea of project. 
 •	Explanation of what phishing is, and the different kinds of attacks.
 •	Analysis of our annotated bibliography. 
