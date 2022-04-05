@@ -5,11 +5,11 @@
 
 "background": {
     "persistent": false,
-    "scripts": ["background.js", "jQuery.js"]
+    "scripts": ["jQuery.js", "background.js"]
 },
 "content_scripts": [{
     "matches": ["<all_urls>"],
-    "js":      ["content.js"]
+    "js":      ["jQuery.js", "content.js"]
 }],
 "browser_action": {
     "default_title": "Get HTML example",
