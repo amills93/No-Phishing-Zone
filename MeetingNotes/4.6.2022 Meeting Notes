@@ -1,0 +1,26 @@
+4.6.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+
+	Ideas to fleshing out the add-on:
+-	Run emails against a whitelist, blacklist, and if a URL is not on either then flag it as something to be weary of – Phishtank maybe? Their API is not taking new users though. 
+-	Where would be get a blacklist to run against?
+-	Spoof detection? Message detection may not be possible. 
+
+Enumerating “href” from gmail. 
+Mozilla reference for Nodes https://developer.mozilla.org/en-US/docs/Web/API/Node/childNodes
+	Look under Reference section should find operators there that can be used for this. 
+  
+Dr. Hale is okay with us doing the recording on Monday and submitting it along with the documents. If we need that much time, just need to let him know ahead of time.
+
+Outline Headings after talking to Dr. Hale were taken and will be used to change the outline. Basic outline structure of making bullet sentences and then fleshing them out to write the paper. 
+
+Chris' notes on Diagram building.
+flesh out to next level as the other diagram
+Sub diagram to break out the lower level for content.js and the functions
+Components in Component Diagram - parsing component, whitelist component (datasource), functional implementation of code artifacts (logical functional units that group process handlers into different clusters)
+parser phase  -> validator phase -> feedback phase
