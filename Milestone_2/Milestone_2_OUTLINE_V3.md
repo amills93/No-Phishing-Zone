@@ -9,22 +9,24 @@ Issue of phishing
 
 Frame issue of phishing as a behavioral problem.
 -   Note disconnect between typical user action of clicking phishing link, and impacts/results that it has.
-How it happens
-Why it happens
+-   How it happens
+-   Why it happens
 -   Presentation of our main project idea
 -   Impacts we believe this will have in relationship to current state of user awareness and phishing attacks. 
 
 ## Section 2: Research and Project
 //What our research found:
 
-- Current available tools for fighting phishing and educating users.
-    • Cluster types of defenses for phishing
-        o Tools – those we found in our research
-        o User education – KnowBe4 and Google Web Etiquette trainings. 
-    • Tools that we found in literature from our bibliography. 
-        o Analysis of our research and what the current tech is.
-        o How we found current tools lacking.
-        o How we wanted a tool that did what our tool does but did not find one.
+Current available tools for fighting phishing and educating users.
+- Cluster types of defenses for phishing
+- Tools – those we found in our research
+
+User education – KnowBe4 and Google Web Etiquette trainings. 
+- Tools that we found in literature from our bibliography. 
+- Analysis of our research and what the current tech is.
+
+How we found current tools lacking.
+- How we wanted a tool that did what our tool does but did not find one.
 
 //No-Phishing-Zone Explanation
 - Full explanation of what No-Phishing-Zone browser extension will do and won’t do and why.
