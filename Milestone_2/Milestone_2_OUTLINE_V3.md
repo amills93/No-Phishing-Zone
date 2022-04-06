@@ -1,19 +1,18 @@
 # Outline
 ## Section 1: Introduction
-- Issue of phishing
+Issue of phishing
 -    Definition
 -    History
 -    Different kinds of attacks
 -    Current state and impact
 -    Analysis of our bibliography in relation to current state of phishing attacks.
 
-- Frame issue of phishing as a behavioral problem.
-
-    Note disconnect between typical user action of clicking phishing link, and impacts/results that it has.
-        - How it happens
-        - Why it happens
-    Presentation of our main project idea
-    Impacts we believe this will have in relationship to current state of user awareness and phishing attacks. 
+Frame issue of phishing as a behavioral problem.
+-   Note disconnect between typical user action of clicking phishing link, and impacts/results that it has.
+How it happens
+Why it happens
+-   Presentation of our main project idea
+-   Impacts we believe this will have in relationship to current state of user awareness and phishing attacks. 
 
 ## Section 2: Research and Project
 //What our research found:
