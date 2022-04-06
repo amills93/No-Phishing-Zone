@@ -1,11 +1,11 @@
 # Outline
 ## Section 1: Introduction
 - Issue of phishing
-     Definition
-     History 
-     Different kinds of attacks
-     Current state and impact
-     Analysis of our bibliography in relation to current state of phishing attacks.
+-    Definition
+-    History
+-    Different kinds of attacks
+-    Current state and impact
+-    Analysis of our bibliography in relation to current state of phishing attacks.
 
 - Frame issue of phishing as a behavioral problem.
 
