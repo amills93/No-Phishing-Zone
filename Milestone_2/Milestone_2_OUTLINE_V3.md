@@ -1,5 +1,5 @@
 # Outline
-## Section 1: Introduction
+# Section 1: Introduction
 ### Issue of phishing
 -    Definition of Phishing.
 -    History of Phishing
@@ -14,7 +14,7 @@
 -   Presentation of our main project idea.
 -   Impacts we believe this will have in relationship to current state of user awareness and phishing attacks. 
 
-## Section 2: Research and Project
+# Section 2: Research and Project
 //What our research found:
 
 ### Current available tools for fighting phishing and educating users.
@@ -37,7 +37,7 @@
 
 ### Explain why we think our approach is beneficial, and how it would fix the behavioral issue earlier described.
 
-## Section 3: Results
+# Section 3: Results
 //What happened during our work on the project.
 
 ### Limitations we faced on the project.
@@ -52,7 +52,7 @@
 -   Broaden repos that the extension compares URLs to. 
 -   Become the Grammerly of phishing detection tools.
 
-## Section 4: Conclusion
+# Section 4: Conclusion
 -   Overview of paper
 -   Discussion on our results
 
