@@ -10,8 +10,8 @@
 - Frame issue of phishing as a behavioral problem.
 
     • Note disconnect between typical user action of clicking phishing link, and impacts/results that it has.
-        o How it happens
-        o Why it happens
+        - How it happens
+        - Why it happens
     • Presentation of our main project idea
     • Impacts we believe this will have in relationship to current state of user awareness and phishing attacks. 
 
