@@ -7,7 +7,7 @@ The bulk of the project work is centered on realizing the methodology you define
 
 Be productive, work towards completing your process, and document what you do. Documentation towards project realization will come in the form an intermediate project report. 
 
-# Progress Report (insert date here)
+# Progress Report 4/10/2022
 ## Overview
 (insert brief overview of efforts made)
 After first identifying what the project could be, it was then divided into several core development modules.
