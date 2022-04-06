@@ -1,10 +1,11 @@
 ## Summery Argument of the paper:
 -	Will cover main Idea of project. 
-    •	Explanation of what phishing is, and the different kinds of attacks.
-    •	Analysis of our annotated bibliography. 
-    •	Our project idea, and why we think it is important. 
-    •	Issues we ran into with the project, and our successes.
-    •	What we would change if we had more time/resources.
+  
+   •	Explanation of what phishing is, and the different kinds of attacks.
+   •	Analysis of our annotated bibliography. 
+   •	Our project idea, and why we think it is important. 
+   •	Issues we ran into with the project, and our successes.
+   •	What we would change if we had more time/resources.
 
 ## How are the key points related to the main idea of the paper?
 -	Here is what we are looking at:
