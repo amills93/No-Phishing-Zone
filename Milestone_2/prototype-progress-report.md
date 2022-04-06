@@ -9,15 +9,16 @@ Be productive, work towards completing your process, and document what you do. D
 
 # Progress Report 4/10/2022
 ## Overview
-(insert brief overview of efforts made)
-After first identifying what the project could be, it was then divided into several core development modules.
+
+After first identifying what the project could be, it was then incrementally improved upon in weekly iterations.  The project first began with how to succesfully set up and package a Chrome Extension that the browser will accept.  Then, the goal pivoted toward getting DOM file of a web page ingested by the extension.  Once ingested, making sense of the DOM file proved difficult.  The core features sought to be explored for the final deliverable in Milestone 3 require certain levels of parsing for this data.
 
 ## Outcomes
-(brief overview of outcomes - what did you achieve?)
 
-also list them out like this:
-* outcome 1
-* outcome 2
+During this period, we succesfully packaged a Chrome Extension that runs in the browser.  As well, the application succesfully reads in and parses an email from within an online web client.
+
+* Succesuful Chrome Extension
+* Extension reads in web email
+* Extension parses certain data from webmail
 
 ## Hinderances
 The intial challenge discovered was the extreme levels of obfuscation involved in modern web email services.  Our original assumptions about the human readability of such webmail services were a notable setback.  The DOM, once ingested, is not casually readable but needed further understanding of web development as well as better tooling for our development.  The tags within the DOM, even if readable, are unintuitive to a novice and thus required better tooling such as jQuery to filter through them.  The technical nature of ingesting the FROM email address of a given email also proved to be more difficult than imagined due to the intense obfuscation in the online mail client.
