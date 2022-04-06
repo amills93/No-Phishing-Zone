@@ -8,9 +8,8 @@
 
 ## How are the key points related to the main idea of the paper?
 -	Here is what we are looking at:
-
-   	Prevalence of phishing attacks.
-   	Basics of common phishing attacks.
+-  Prevalence of phishing attacks.
+-  Basics of common phishing attacks.
 
 ### -	Here is what we think about it and what our research is showing us has been done.
    	Go over articles from annotated bibliography and explain the ground that has been covered already.
