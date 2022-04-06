@@ -1,36 +1,57 @@
-## Summery Argument of the paper:
--	Will cover main Idea of project. 
-- Explanation of what phishing is, and the different kinds of attacks.
-- Analysis of our annotated bibliography. 
--	Our project idea, and why we think it is important. 
--	Issues we ran into with the project, and our successes.
--	What we would change if we had more time/resources.
+# Outline
+## Section 1: Introduction
+- Issue of phishing
+    • Definition
+    • History 
+    • Different kinds of attacks
+    • Current state and impact
+    • Analysis of our bibliography in relation to current state of phishing attacks.
 
-## How are the key points related to the main idea of the paper?
-    This is the problem we are looking at:
-    Prevalence of phishing attacks.
-    Basics of common phishing attacks.
+- Frame issue of phishing as a behavioral problem.
+    • Note disconnect between typical user action of clicking phishing link, and impacts/results that it has.
+        o How it happens
+        o Why it happens
+    • Presentation of our main project idea
+    • Impacts we believe this will have in relationship to current state of user awareness and phishing attacks. 
 
-### -	Here is what we think about it and what our research is showing us has been done.
-   	Go over articles from annotated bibliography and explain the ground that has been covered already.
-   	What do we think of their work?
-   	Where did their work stop short, or what questions did we have that our research could not answer?
+## Section 2: Research and Project
+//What our research found:
 
-### -	Here is what we are wanting to do about it.
-   	Idea of the project. 
-   	How/Why we think  our prototype would be beneficial.
+- Current available tools for fighting phishing and educating users.
+    • Cluster types of defenses for phishing
+        o Tools – those we found in our research
+        o User education – KnowBe4 and Google Web Etiquette trainings. 
+    • Tools that we found in literature from our bibliography. 
+        o Analysis of our research and what the current tech is.
+        o How we found current tools lacking.
+        o How we wanted a tool that did what our tool does but did not find one.
 
-### -	How our work happened, and what issues we ran into.
-   	How/why we decided on Gmail email client.
-   	How we came to only reading URLs from the DOM.
-      - Explain issues that we faced (Gmail obfuscation).
-   	Coding issues.
-   	Basically, list out issues that Christopher ran into with writing the add-on.
+//No-Phishing-Zone Explanation
+- Full explanation of what No-Phishing-Zone browser extension will do and won’t do and why.
+- How it works and what it looks for:
+    • Run all URLs found in the email against “our” database (Phishtank or similar public repo).
+    • Flag blacklist URLs for user to see 
+    • Do nothing for whitelisted URLs
 
-### -	How we would like to change things if we had more time/resources.
-   	Read the whole email and all URLs in it.
-   	Expand to other browsers.
-   	Expand database that we check questionable URLs against.
-   	Expand on ideas from articles listed in the bibliography.
+- Explain why we think our approach is beneficial, and how it would fix the behavioral issue earlier described.
 
-### -	Conclusion
+## Section 3: Results
+//What happened during our work on the project.
+
+- Limitations we faced on the project.
+    • How we came to only reading URLs from the DOM.
+        o How/why we decided on Gmail email client.
+        o Explain issues that we faced with Gmail obfuscation.
+    • Coding issues around unknown languages and our inexperience with browser extensions.
+    • List out issues that Christopher ran into with writing the add-on, and how we overcame them.
+    • Why we think the tools we previously found/mentioned stopped where they did, due to the issues we have run into. 
+
+- Future work.
+    • Broaden repos that the extension compares URLs to. 
+    • Become the Grammerly of phishing detection tools.
+
+## Section 4: Conclusion
+- Overview of paper
+- Discussion on our results
+
+
