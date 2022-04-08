@@ -3,41 +3,41 @@ var senderName;
 var emailBody;
 
 window.addEventListener('load', function () {
+      /* Time used to ensure the full page has loaded */
       setTimeout(() => {
-            hrefTags = document.links;
-            console.log(hrefTags);
-
+            /* Grabs the Senders Email based on the 'go' class
+              Note: This is only valid for Google Mail in Google Chrome*/
             senderEmail = document.getElementsByClassName("go").item(0);
-            console.log(senderEmail);
+//            console.log(senderEmail);
+            /* Calls the ValidateEmail function */
             ValidateEmail(senderEmail);
-
-//            senderEmail.style = "{ border-style: dotted; border-radius: 5px 5px 5px; border: 1px solid red; }";
 
             // senderName = document.getElementsByClassName("gD");
             // console.log(senderName.item(0));
 
-//            emailNode = document.getElementsByClassName("nH aHU").item(0);
-//            emailNode.childnodes //recursively go down to see if any are type a and add to a list of "found links"
-
-            // jQuery does this as part of a Query Selector (top element.sub element)
-            // children[i].nodeType == 'a'
-            console.log(emailBody);
+            /* Email Body for Google Mail has an id=:2h
+              Note: This is only valid for Google Mail in Google Chrome */
+            emailBody = document.getElementById(":2h");
+//            console.log(emailBody);
+            /* Calls the ValidateURLS Function */
+            ValidateURLS(emailBody);
         }, 400);
 
 })
 
 function ValidateEmail(mail)
 {
+  /* Takes the innerText of the mail object */
   emailToValidate = mail.innerText;
-  console.log(emailToValidate);
+//  console.log(emailToValidate);
+
 /* Strips off the < and > from the string */
   emailToValidate = emailToValidate.replace(/[><]/g, '');
-  console.log(emailToValidate);
+//  console.log(emailToValidate);
 
     /* Variable used to test the regex */
 //  TestemailToValidate = 'paypal@paypaL.com'
 //  const rfc22 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-
 
 /*
   The Regex is used to validate an email address based on the parameters below.
@@ -57,5 +57,13 @@ function ValidateEmail(mail)
 
 function ValidateURLS(url)
 {
-  // Insert Data Here
+  /* Creates a NodeList of all the 'a' tags in the URL Object */
+  const myNodeList = url.querySelectorAll("a");
+  console.log(myNodeList);
+
+  /* Loops through each a tag in the NodeList and
+    attempts to validate it */
+  for (let i = 0; i < myNodeList.length; i++) {
+    console.log(myNodeList[i].href);
+  }
 }
