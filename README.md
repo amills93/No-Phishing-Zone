@@ -8,7 +8,7 @@
 - [Resources & Technology needed](#resources-needed)
 - [Vid Grid Presentation](https://use.vg/eRSDe9)
 - [PowerPoint Presentation](No%20Phishing%20Zone%20M1%20Presentation.pptx)
-- [Environment Setup](#Enviroment-Setup)
+- [Environment Setup](#Environment-Setup)
 
 # Executive Project Summary
 
