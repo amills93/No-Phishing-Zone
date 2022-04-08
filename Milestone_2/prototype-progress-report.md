@@ -16,12 +16,13 @@ After first identifying what the project could be, it was then incrementally imp
 
 During this period, we succesfully packaged a Chrome Extension that runs in the browser.  As well, the application succesfully reads in and parses an email from within an online web client.
 
-* Succesuful Chrome Extension
-* Extension reads in web email
-* Extension parses certain data from webmail
+* Successfully Created Chrome Extension
+* Extension reads in Sender Email Address email
+* Extension reads in Senders Name
+* Extension reads in URLs in Email Body
 
 ## Hinderances
-The intial challenge discovered was the extreme levels of obfuscation involved in modern web email services.  Our original assumptions about the human readability of such webmail services were a notable setback.  The DOM, once ingested, is not casually readable but needed further understanding of web development as well as better tooling for our development.  The tags within the DOM, even if readable, are unintuitive to a novice and thus required better tooling such as jQuery to filter through them.  The technical nature of ingesting the FROM email address of a given email also proved to be more difficult than imagined due to the intense obfuscation in the online mail client.
+The intial challenge discovered was the extreme levels of obfuscation involved in modern web email services.  Our original assumptions about the human readability of such webmail services were a notable setback.  The DOM, once ingested, is not casually readable but needed further understanding of web development as well as better tooling for our development.  The tags within the DOM, even if readable, are unintuitive to a novice and thus required better tooling such as jQuery to filter through them.  The technical nature of ingesting the FROM email address of a given email also proved to be more difficult than imagined due to the intense obfuscation in the online mail client.  Another hinderence has been tags from ingested email content are specific to Gmail, thus not cross compatable with other mail clients.  Because of this, scope had narrowed down to only focusing on Gmail-type emails.  Validating the email address of a potential
 
 ## Ongoing Risks
 
