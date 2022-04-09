@@ -5,7 +5,7 @@
 
 "icons": { "16": "assets/icon16.png",
            "48": "assets/icon48.png",
-          "128": "assets/icon128.png" 
+          "128": "assets/icon128.png"
 },
 "background": {
     "persistent": false,
@@ -15,6 +15,9 @@
     "matches": ["<all_urls>"],
     "js":      ["jQuery.js", "content.js"]
 }],
+"web_accessible_resources": [
+  "*.txt"
+],
 "browser_action": {
     "default_title": "Get HTML example",
     "default_popup": "popup.html"
