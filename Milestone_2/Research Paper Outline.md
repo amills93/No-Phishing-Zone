@@ -24,7 +24,6 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 -   Impacts we believe this will have in relationship to current state of user awareness and phishing attacks.
 
 # Section 2: Research and Project
-//What our research found:
 
 ### Current available tools for fighting phishing and educating users.
 -   Cluster types of defenses for phishing
@@ -37,7 +36,7 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 ### How we found current tools lacking.
 -   How we wanted a tool that did what our tool does but did not find one.
 
-//No-Phishing-Zone Explanation
+
 ### Full explanation of what No-Phishing-Zone browser extension will do and won’t do and why.
 ### How it works and what it looks for:
 -   Run all URLs found in the email against “our” database (Phishtank or similar public repo).
@@ -47,7 +46,6 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 ### Explain why we think our approach is beneficial, and how it would fix the behavioral issue earlier described.
 
 # Section 3: Results
-//What happened during our work on the project.
 
 ### Limitations we faced on the project.
 -   How we came to only reading URLs from the DOM.
