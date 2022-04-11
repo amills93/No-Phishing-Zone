@@ -10,6 +10,7 @@
 - [PowerPoint Presentation](No%20Phishing%20Zone%20M1%20Presentation.pptx)
 - [Environment Setup](#Environment-Setup)
 - [Milestone 2 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_2)
+- [Milestone 2 Recorded Video](https://use.vg/52Yw98)
 
 # Executive Project Summary
 
