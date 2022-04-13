@@ -1,0 +1,27 @@
+4.13.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills
+[X] Chris Schmitt
+[  ] Dennis Ugbebor
+[X] Dylan Redden
+	
+	Hope to get feed back from dr. hale by Friday, Monday at the latest. So, we can talk about the outline.
+	
+	Parsing of tool has to use “fetch” to be able to compare to a text file. This seemed ‘hacky’, and wanted to know if there was a better way. 
+	“StringOf” being used to check URLs, currently, against lists. Is there a better way?
+	Validating URLs that have known good URLs in them but are actually bad. I.E. xyqups.com\index 
+    •	Strip off dot and leaving only the first part of the URL. Maybe compare to the whitelist portion?
+    •	Whitelist is not inclusive. We pulled some from Github, but seems to still be missing more “local” URLs that are not from national companies. 
+
+Dr. Hale recommends implementing a hash algorithm to go through the lists. 
+	Currently have the blacklist as a text file (has over 1M URLs)
+    -	Maybe use WebSQL, that could be used so that this list could be more quickly sorted. This is basically SQLlite. 
+    -	WebSQL may have been succeeded by another program. IndexDB may be the program to use.
+    -	Probably use a wrapped DB, so that there is a scheme that can be used. 
+    -	Library to use? IDB – will be more object available. 
+      o	IDBRequest and the like are good functions to use. Available in developer.Mozilla.org
+
+Format for the final paper: IEEE (ACM paper template) 
+Guidance will be posted to Canvas soon. 
+Overleaf is a good tool but can be in markdown format too.
