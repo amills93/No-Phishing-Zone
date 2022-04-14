@@ -1,38 +1,43 @@
 /* Waits for content.js to send the emailToValidate as a message before making an API call
 and validating the email address */
-chrome.runtime.onMessage.addListener(
-function(emailToValidate, sender) {
-  /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
-  $.getJSON('https://ipqualityscore.com/api/json/email/<API_KEY>/' + emailToValidate, function( json ) {
-    console.log( "Hello from Background Script" );
-    /* Boolean Value for Email Validity */
-    var isValid = false;
+chrome.runtime.onMessage.addListener(function(request, sender) {
 
-/* If Else statement evaluates the email address based on the response from the api.
-Reponse from the API can be described as such:
-  valid - Does this email address appear valid? - Booblean
-  disposable - Is this email suspected of belonging to a temp or disposable mail service? - Booblean
-  overall_score -
-      0 = invalid email address
-      1 = dns valid, unreachable mail server
-      2 = dns valid, temporary mail rejection error
-      3 = dns valid, accepts all mail
-      4 = dns valid, verified email exists
-*/
-  // console.log(json.valid)
-  // console.log(json.disposable)
-  // console.log(json.overall_score)
+/* If the Request is of type email */
+  if (request.type == "email") {
+    /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
+    $.getJSON('https://ipqualityscore.com/api/json/email/<API_KEY>/' + request.emailToValidate, function( json ) {
+      console.log( "Hello from Background Script email Function" );
+      /* Boolean Value for Email Validity */
+      var isValid = false;
+  /* If Else statement evaluates the email address based on the response from the api.
+  Reponse from the API can be described as such:
+    valid - Does this email address appear valid? - Booblean
+    disposable - Is this email suspected of belonging to a temp or disposable mail service? - Booblean
+    overall_score -
+        0 = invalid email address
+        1 = dns valid, unreachable mail server
+        2 = dns valid, temporary mail rejection error
+        3 = dns valid, accepts all mail
+        4 = dns valid, verified email exists
+  */
+    // console.log(json.valid)
+    // console.log(json.disposable)
+    // console.log(json.overall_score)
 
-    if (json.valid && !json.disposable && json.overall_score >= 3) {
-      console.log("Valid Email Address")
-      isValid = true;
-      returnMessage(isValid)
-    } else {
-      console.log("Invalid Email Address")
-      isValid = false;
-      returnMessage(isValid)
-    }
-   });
+      if (json.valid && !json.disposable && json.overall_score >= 3) {
+        console.log("Valid Email Address")
+        isValid = true;
+        returnMessage(isValid)
+      } else {
+        console.log("Invalid Email Address")
+        isValid = false;
+        returnMessage(isValid)
+      }
+     });
+   }
+   else if (request.type == 'URL') {
+     //Handle URL
+   }
 });
 
 /* Sends a message back to content.js based on the email Validity.

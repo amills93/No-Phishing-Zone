@@ -39,15 +39,15 @@ function ValidateEmail(mail)
 
   /* Sends the emailToValidate as a message to background.js to
   execute an API call. Note: API calls are not allowed in content.js files*/
-  chrome.runtime.sendMessage(emailToValidate, function(response) {
-      console.log("contentscript sending message");
+  chrome.runtime.sendMessage({"type": "email", "emailToValidate": emailToValidate}, function(response) {
+      console.log("contentscript sending email");
     });
 
 /* Waits for a response from the backgroun.js to apply the CSS to the
 senders email based on validity */
   chrome.runtime.onMessage.addListener(
     function(request, sender) {
-    console.log("Contentscript has received a message from from background script: " + request.message);
+    console.log("Contentscript has received an email message from from background script: " + request.message);
         if (request.message) {
           console.log("Valid Email")
           senderEmail.style.color = "green";
@@ -65,14 +65,30 @@ If an email URL is Valid it will change the CSS color to green.
 */
 function ValidateURLS(url)
 {
-  /* Creates a NodeList of all the 'a' tags in the URL Object */
-  const myNodeList = url.querySelectorAll("a");
-//  console.log(myNodeList);
-
-  /* Loops through each a tag in the NodeList and
-    attempts to validate it */
-  for (let i = 0; i < myNodeList.length; i++) {
-//    console.log(myNodeList[i].href);
-    myNodeList[i].style.color = "red";
-  }
+//   /* Creates a NodeList of all the 'a' tags in the URL Object */
+//   const myNodeList = url.querySelectorAll("a");
+// //  console.log(myNodeList);
+//
+//   /* Loops through each a tag in the NodeList and
+//     attempts to validate it */
+//   for (let i = 0; i < myNodeList.length; i++) {
+//     /* Sends the emailToValidate as a message to background.js to
+//     execute an API call. Note: API calls are not allowed in content.js files*/
+//     chrome.runtime.sendMessage({"type": "URL", "urlToValidate": myNodeList[i]}, function(response) {
+//         console.log("contentscript sending URL");
+//       });
+//   /* Waits for a response from the backgroun.js to apply the CSS to the
+//   senders email based on validity */
+//     chrome.runtime.onMessage.addListener(
+//       function(request, sender) {
+//       console.log("Contentscript has received a URL message from from background script: " + request.message);
+//           if (request.message) {
+//             console.log("Valid Email")
+//             myNodeList[i].style.color = "green";
+//           } else {
+//             console.log("Invalid Email")
+//             myNodeList[i].style.color = "red";
+//           }
+//       });
+//   }
 }
