@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 /* If the Request is of type email */
   if (request.type == "email") {
     /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
-    $.getJSON('https://ipqualityscore.com/api/json/email/<API_KEY>/' + request.emailToValidate, function( json ) {
+    $.getJSON('https://ipqualityscore.com/api/json/email/<API_KEY>' + request.emailToValidate, function( json ) {
       console.log( "Hello from Background Script email Function" );
       /* Boolean Value for Email Validity */
       var isValid = false;
@@ -35,8 +35,35 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
       }
      });
    }
+   /* If the Request is of type URL */
    else if (request.type == 'URL') {
-     //Handle URL
+     /* API Overview https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview */
+     $.getJSON('https://ipqualityscore.com/api/json/url/<API_KEY>' + request.urlToValidate, function( json ) {
+       console.log( "Hello from Background Script URL Function" );
+       /* Boolean Value for Email Validity */
+       var isURLValid = false;
+   /* If Else statement evaluates the URL address based on the response from the api.
+   Reponse from the API can be described as such:
+     phishing - Is this URL associated with malicious phishing behavior? - Booblean
+     malware - Is this URL associated with malware or viruses? - Booblean
+     parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
+     spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
+   */
+   console.log(json.phishing);
+   console.log(json.malware);
+   console.log(json.parking);
+   console.log(json.spamming);
+
+       if (!json.phishing && !json.malware && !json.parking && !json.spamming) {
+         console.log("Valid URL Address")
+         isURLValid = true;
+         returnMessage(isURLValid)
+       } else {
+         console.log("Invalid URL Address")
+         isURLValid = false;
+         returnMessage(isURLValid)
+       }
+      });
    }
 });
 
