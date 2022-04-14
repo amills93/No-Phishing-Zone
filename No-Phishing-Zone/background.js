@@ -1,47 +1,48 @@
-/* Variables for the Function below */
-function doStuffWithDOM(domContent) {
-/* This was what was causing the double load.
-    chrome.extension.getBackgroundPage().domContent = domContent;
+/* Waits for content.js to send the emailToValidate as a message before making an API call
+and validating the email address */
+chrome.runtime.onMessage.addListener(
+function(emailToValidate, sender) {
+  /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
+  $.getJSON('https://ipqualityscore.com/api/json/email/<API_KEY>/' + emailToValidate, function( json ) {
+    console.log( "Hello from Background Script" );
+    /* Boolean Value for Email Validity */
+    var isValid = false;
+
+/* If Else statement evaluates the email address based on the response from the api.
+Reponse from the API can be described as such:
+  valid - Does this email address appear valid? - Booblean
+  disposable - Is this email suspected of belonging to a temp or disposable mail service? - Booblean
+  overall_score -
+      0 = invalid email address
+      1 = dns valid, unreachable mail server
+      2 = dns valid, temporary mail rejection error
+      3 = dns valid, accepts all mail
+      4 = dns valid, verified email exists
 */
+  // console.log(json.valid)
+  // console.log(json.disposable)
+  // console.log(json.overall_score)
 
-    /* Waits for the domContent page to fully load the DOM
-    before executing the code below */
-      // console.log("test");
-      // console.log('I received the following DOM content:\n' + domContent);
-      /* Finds all divs with class="nH aHU" class and outputs the
-       inner text to the console. This outputs the body of a gMail email */
-//      console.log($(domContent).find("div.nH.aHU")[0]);
-//       emailBody = $(domContent).find("div.nH.aHU").text();
-//
-//       /* Grabs the Senders Contact Name and saves it
-//       span class gD contains the Senders Contact Name */
-       // senderName = $(domContent).find("span.gD");
-       // console.log(senderName);
-       // senderName.first().css( "background-color", "yellow" );
-       //       console.log(senderName).first().css();
-//       console.log(senderName).first().css();
-//
-//       /* Grabs the Senders Email Address and saves it
-//       span class go contains the senders email printed as <email> */
-// //      console.log($(domContent).find("span.go").text());
-//
-//       /* Saves email as a variable */
-//       senderEmail = $(domContent).find("span.go").text();
-//
-//       /* Strips off the < and > from the string */
-//       senderEmail = senderEmail.replace(/[><]/g, '');
-
-      // Test to ensure variable has content
-//      console.log(senderEmail);
-
-//      console.log($(domContent).find(":contains('@')").not(":contains('font-face')").text())
-}
-
-// Check for onloaded lister or something other than 'Updated' or set global flag
-chrome.tabs.onUpdated.addListener(function(id,changeInfo,tab){
-    if(changeInfo.status=='complete' && tab.status=='complete'){ //To send message after the webpage has loaded
-        chrome.tabs.sendMessage(tab.id, { text: "report_back" },function(response){
-           doStuffWithDOM(response);
-        });
+    if (json.valid && !json.disposable && json.overall_score >= 3) {
+      console.log("Valid Email Address")
+      isValid = true;
+      returnMessage(isValid)
+    } else {
+      console.log("Invalid Email Address")
+      isValid = false;
+      returnMessage(isValid)
     }
-})
+   });
+});
+
+/* Sends a message back to content.js based on the email Validity.
+- False if Invalid
+- True if Valid */
+function returnMessage(boolValue)
+{
+ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.sendMessage(tabs[0].id, {message: boolValue}, function(response) {
+    console.log("Background script is sending a message to contentscript: " + boolValue);
+  });
+});
+}

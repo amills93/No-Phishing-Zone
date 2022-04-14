@@ -23,5 +23,5 @@
     "default_popup": "popup.html"
 },
 
-"permissions": ["tabs"]
+"permissions": ["tabs", "https://*/"]
 }
