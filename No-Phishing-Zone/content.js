@@ -74,7 +74,10 @@ function ValidateURLS(url)
   for (let i = 0; i < myNodeList.length; i++) {
     /* Sends the emailToValidate as a message to background.js to
     execute an API call. Note: API calls are not allowed in content.js files*/
-    chrome.runtime.sendMessage({"type": "URL", "urlToValidate": myNodeList[i]}, function(response) {
+    url = String(myNodeList[i]).replace(/^https?:\/\//, 'https%3A%2F%2F');
+    url = url.split("/")[0];
+    console.log(url);
+    chrome.runtime.sendMessage({"type": "URL", "urlToValidate": url}, function(response) {
         console.log("contentscript sending URL");
       });
   /* Waits for a response from the backgroun.js to apply the CSS to the

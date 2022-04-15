@@ -6,7 +6,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request.type == "email") {
     /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
     $.getJSON('https://ipqualityscore.com/api/json/email/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.emailToValidate, function( json ) {
-      console.log( "Hello from Background Script email Function" );
+      console.log( "Checking email: " + request.emailToValidate);
       /* Boolean Value for Email Validity */
       var isValid = false;
   /* If Else statement evaluates the email address based on the response from the api.
@@ -39,7 +39,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
    else if (request.type == 'URL') {
      /* API Overview https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview */
      $.getJSON('https://ipqualityscore.com/api/json/url/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.urlToValidate, function( json ) {
-       console.log( "Hello from Background Script URL Function" );
+       console.log( "Checking URL: " + request.urlToValidate);
        /* Boolean Value for Email Validity */
        var isURLValid = false;
    /* If Else statement evaluates the URL address based on the response from the api.
@@ -49,10 +49,10 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
      parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
      spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
    */
-   console.log(json.phishing);
-   console.log(json.malware);
-   console.log(json.parking);
-   console.log(json.spamming);
+   // console.log(json.phishing);
+   // console.log(json.malware);
+   // console.log(json.parking);
+   // console.log(json.spamming);
 
        if (!json.phishing && !json.malware && !json.parking && !json.spamming) {
          console.log("Valid URL Address")
