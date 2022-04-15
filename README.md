@@ -75,11 +75,13 @@ The following resources have been identified as critical to the success of this 
 
 # Environment Setup
 
-No-Phishing-Zone is a Google Chrome Extension that requires the Google Web Browser and Google Mail account. The application was designed to parse the contents of Gmail emails and identify potential malicious or phishing links and highlight them `red` if malicious, `green` if good, or `yellow` if unknown. While the extension is in development it will not be in the Google Chrome Extension Store. The instructions below will walk you through enabling `developer` mode, for more information on Chrome Development Mode refer to the [Google Chrome Documentation](https://developer.chrome.com/docs/extensions/mv3/faq/). To install the Google Chrome Web Browser proceed to the Google [Chrome Website](https://www.google.com/chrome/index.html?msclkid=f61664c0b52a11eca13a87e11c8e1852) and follow the instructions to install the browser. Once installed follow the steps below:
+No-Phishing-Zone is a Google Chrome Extension that requires the Google Web Browser and Google Mail account. The application was designed to parse the contents of Gmail emails and identify potential malicious or phishing links and highlight them `red` if malicious and `green` if good. The extension uses the IPQualityScore Malicious URL and Email API and users can register for a free account and get 5000 free API calls a month. While the extension is in development it will not be in the Google Chrome Extension Store. The instructions below will walk you through enabling `developer` mode, for more information on Chrome Development Mode refer to the [Google Chrome Documentation](https://developer.chrome.com/docs/extensions/mv3/faq/). To install the Google Chrome Web Browser proceed to the Google [Chrome Website](https://www.google.com/chrome/index.html?msclkid=f61664c0b52a11eca13a87e11c8e1852) and follow the instructions to install the browser. Once installed follow the steps below:
   1. Clone the No-Phishing-Zone GitHub Repository `git clone https://github.com/amills93/No-Phishing-Zone.git`
-  2. Open the Google Chrome Web browser
-  3. Navigate to the Chrome Extension Page `chrome://extensions/`
-  4. In the upper right hand corner enable `Developer Mode`
-  5. Select `Unpack Extension`
-  6. When File Explorer opens navigate to and select the `No-Phishing-Zone` folder in the `No-Phishing-Zone` GitHub folder
-  7. Once the extension is enabled navigate to a Google Mail (Gmail) Account and open an email
+  2. Register for an Account at [IPQualityScore](https://www.ipqualityscore.com/create-account) to get a free API key
+  3. Navigate to the `background.js` file and input your API Key in the email and URL `json` calls `<API_KEY>`
+  4. Open the Google Chrome Web browser
+  5. Navigate to the Chrome Extension Page `chrome://extensions/`
+  6. In the upper right hand corner enable `Developer Mode`
+  7. Select `Unpack Extension`
+  8. When File Explorer opens navigate to and select the `No-Phishing-Zone` folder in the `No-Phishing-Zone` GitHub folder
+  9. Once the extension is enabled navigate to a Google Mail (Gmail) Account and open an email
