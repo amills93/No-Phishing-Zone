@@ -53,7 +53,7 @@ senders email based on validity */
           senderEmail.style.color = "green";
         } else {
           console.log("Invalid Email")
-          enderEmail.style.color = "red";
+          senderEmail.style.color = "red";
         }
     });
 }
