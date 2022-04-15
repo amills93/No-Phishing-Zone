@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 /* If the Request is of type email */
   if (request.type == "email") {
     /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
-    $.getJSON('https://ipqualityscore.com/api/json/email/<API_KEY>' + request.emailToValidate, function( json ) {
+    $.getJSON('https://ipqualityscore.com/api/json/email/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.emailToValidate, function( json ) {
       console.log( "Hello from Background Script email Function" );
       /* Boolean Value for Email Validity */
       var isValid = false;
@@ -38,7 +38,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
    /* If the Request is of type URL */
    else if (request.type == 'URL') {
      /* API Overview https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview */
-     $.getJSON('https://ipqualityscore.com/api/json/url/<API_KEY>' + request.urlToValidate, function( json ) {
+     $.getJSON('https://ipqualityscore.com/api/json/url/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.urlToValidate, function( json ) {
        console.log( "Hello from Background Script URL Function" );
        /* Boolean Value for Email Validity */
        var isURLValid = false;

@@ -14,10 +14,16 @@ A suggested format for the final report is as follows:
 
 # Project name
 ## Executive Summary
-(overview of project, reuse from milestone 1, update if scope changed)
+Phishing, smishing, vishing… these attacks are often among the most simplistic to perform by malicious actors, and yet they can often have the most damaging consequences. Ransomware is on the rise, especially in the COVID-19 pandemic era, but did you know that a huge portion of ransomware attacks start with a simple phish? Most social engineering attacks follow the shotgun approach, meaning the attacker likes to send as many of them as possible in order to get a catch. Between a lack of focus and a lack security training, the average Joe is unlikely to spot the difference between a fake link and a real one.  
+
+In a large business organization, an end-user might be instructed to undergo security awareness training courses to instill safe practices for working in the digital age.  But apart from those people, the average person does not receive any kind of training.  What if we could bridge this knowledge gap with security awareness tooling?
+
+No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used social engineering tricks and identify suspicious sending domains and perform link validation while a user browses their Google Mail. No-Phishing-Zone will flag those suspicious items and notify the user of the malicious intent by highlighting the URL or Email as green or red, leaving the option to continue up to the user. Often users are merely trying to live their lives and do things as quickly as possible, so any tool that helps them stay safe is a good one.  No-Phishing-Zone is meant to supplement a user’s safe browsing habits and catch suspicious behaviors which may have slipped by them.
 
 ## Project Goals
-(high level project goals, reuse from milestone 1, update if scope changed)
+*	Assist in vetting links as legitimate or as suspected to be malicious
+*	Very that the sender of the email is not spoofing an address
+*	Increase the overall safe browsing habits of a user, without having the ability to walk them through a cybersecurity training course
 
 ## Project Methodology
 (specific methodology followed in the project, reuse from milestone 1/2, update if scope changed)
@@ -32,12 +38,26 @@ A suggested format for the final report is as follows:
 ## Install Instructions (if applicable)
 ### Requirements
 (list of any software / hardware requirements necessary to run the code/app/etc)
+* [Google Mail Account](https://support.google.com/mail/answer/56256?hl=en)
+* [Google Chrome Browser](https://www.google.com/chrome/index.html?msclkid=f61664c0b52a11eca13a87e11c8e1852)
+* [IPQualityScore Account](https://www.ipqualityscore.com/create-account) for API Key
+* [IDE Like Atom](https://atom.io/) or any Text Editor
+* [Git Bash](https://git-scm.com/downloads)
 
 ### Installation Instructions
-(list of steps to install the product/app/code/etc)
+Refer to the links above for installation instructions for the require software.
 
 ### Getting started
-(list of any steps to run the code after installation and/or manage the apps over their lifecycle)
+1. Clone the No-Phishing-Zone GitHub Repository `git clone https://github.com/amills93/No-Phishing-Zone.git`
+2. Get API Key from [IPQualityScore](https://www.ipqualityscore.com/create-account) Account
+3. Navigate to the `background.js` file and input your API Key in the email and URL `json` calls `<API_KEY>`
+4. Open the Google Chrome Web browser
+5. Navigate to the Chrome Extension Page `chrome://extensions/`
+6. In the upper right hand corner enable `Developer Mode`
+7. Select `Unpack Extension`
+8. When File Explorer opens navigate to and select the `No-Phishing-Zone` folder in the `No-Phishing-Zone` GitHub folder
+9. Once the extension is enabled navigate to a Google Mail (Gmail) Account and open an email
+10. Feel free to open a PR on our [GitHub Page](https://github.com/amills93/No-Phishing-Zone) for any bug fixes or improvements
 
 #### Submission materials
 For this submission, you should submit your final report as a .md file called finalreport.md or README.md (to make it your default page) in your project GitHub repository. You should also convert the md file to pdf and upload it as finalreport.pdf for use on other non-web-based file stores.
