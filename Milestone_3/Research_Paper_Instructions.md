@@ -1,5 +1,5 @@
 # Research paper
-In addition to the project deliverables associates with your project, you are expected to develop a non-trivial research paper that follows-on from your milestone 2 work and discussions with Dr. Hale. The paper should considered "conference ready" - that is to say it should exhibit a high quality writing product, synthesize concepts from multiple sources, and build cohesive narrative in support of the focus of the research (whatever that may be).
+In addition to the project deliverables associates with your project, you are expected to develop a non-trivial research paper that follows-on from your milestone 2 work and discussions with Dr. Hale. The paper should be considered "conference ready" - that is to say it should exhibit a high quality writing product, synthesize concepts from multiple sources, and build cohesive narrative in support of the focus of the research (whatever that may be).
 
 #### Warning This paper is not a simple term paper! Short, poorly written work that does not synthesize concepts or build cohesive narrative will not suffice.
 
