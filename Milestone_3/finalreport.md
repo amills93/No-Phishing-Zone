@@ -29,14 +29,14 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 (specific methodology followed in the project, reuse from milestone 1/2, update if scope changed)
 
 ## Results / Findings
-(brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
+(brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings. Summarize findings as they relate to the original proposal in milestone 1. What worked, what didn't work? Where would future work be most useful?)
 
 * Ingest and the DOM content of a Google Email
 * Identify the email and body sections of an email from the DOM
 * Identify the class or ID name of the senders email and email body
 * Successfully parse the DOM and store the email and URLs in the email body
 * Identify an API that can validate and analyze emails and URLs
-* Validate email agaisnt an API
+* Validate email against an API
 * Validate URLs in the Body of the email against an API
 * Manipulate the CSS of the senders email and the URLs in the email body based on validation results
 
