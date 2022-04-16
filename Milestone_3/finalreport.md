@@ -29,7 +29,7 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 (specific methodology followed in the project, reuse from milestone 1/2, update if scope changed)
 
 ## Results / Findings
-(brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings. Summarize findings as they relate to the original proposal in milestone 1. What worked, what didn't work? Where would future work be most useful?)
+During this milestone and after feedback from the professor in Milestone 2 we began researching different APIs to move away from static allow and deny lists. Most of the APIs we looked at required a paid subscription or just produced a text/csv file of known malicious links. We found a free API from [IPQualityScore](https://www.ipqualityscore.com/) that lets users register for an account and receive up to 200 API calls a day and 5000 API calls a month.
 
 * Ingest and the DOM content of a Google Email
 * Identify the email and body sections of an email from the DOM
@@ -39,6 +39,11 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 * Validate email against an API
 * Validate URLs in the Body of the email against an API
 * Manipulate the CSS of the senders email and the URLs in the email body based on validation results
+
+### Future Work
+The email and URL API endpoints offer more options that a future user could easily implement in our Chrome Extension to provide more of an analysis, to see the full list of supported API response fields refer to the [Email API Documentation](https://www.ipqualityscore.com/documentation/email-validation/overview) and [URL API Documentation](https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview). Future work could expand on what we did by implementing a more robust analysis of an email address or URL.
+
+Due to the timeframe of the semester we had to limit our scope to only focus on Chrome Extensions and the Google Email Web Client. Future work can further develop our Extension and expand support to other web browsers and other email web clients. Due to the obfuscation of the DOM elements that identify the senders email address and the body of the email we were only able to identify the `class` and `ids` for Google Emails. However we were able to verify that these `class` and `ids` are unique to all Gmail accounts across multiple browsers. Future researchers can identify the same unique identifiers and apply support to online mail clients like Outlook or Yahoo.
 
 ## Install Instructions
 ### Requirements
@@ -62,11 +67,6 @@ Refer to the links above for installation instructions for the required software
 8. When File Explorer opens navigate to and select the `No-Phishing-Zone` folder in the `No-Phishing-Zone` GitHub folder
 9. Once the extension is enabled navigate to a Google Mail (Gmail) Account and open an email
 10. Feel free to open a PR on our [GitHub Page](https://github.com/amills93/No-Phishing-Zone) for any bug fixes or improvements
-
-### Future Work
-The email and URL API endpoints offer more options that a future user could easily implement in our Chrome Extension to provide more of an analysis, to see the full list of supported API response fields refer to the [Email API Documentation](https://www.ipqualityscore.com/documentation/email-validation/overview) and [URL API Documentation](https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview). Future work could expand on what we did by implementing a more robust analysis of an email address or URL.
-
-Due to the timeframe of the semester we had to limit our scope to only focus on Chrome Extensions and the Google Email Web Client. Future work can further develop our Extension and expand support to other web browsers and other email web clients. Due to the obfuscation of the DOM elements that identify the senders email address and the body of the email we were only able to identify the `class` and `ids` for Google Emails. However we were able to verify that these `class` and `ids` are unique to all Gmail accounts across multiple browsers. Future researchers can identify the same unique identifiers and apply support to online mail clients like Outlook or Yahoo. 
 
 #### Submission materials
 For this submission, you should submit your final report as a .md file called finalreport.md or README.md (to make it your default page) in your project GitHub repository. You should also convert the md file to pdf and upload it as finalreport.pdf for use on other non-web-based file stores.

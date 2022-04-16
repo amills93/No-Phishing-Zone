@@ -1,26 +1,15 @@
-# Project realization Progress report
-
-Here, you should identify the tasks you have achieved in milestone 3, document the product or other intellectual/applied outcomes that have resulted from your efforts, and bind your tasks to the outcomes and documentation you have produced so far.
-
-Be productive, work towards completing your process, and document what you do.
-
-Documentation towards project realization will come in the form a project report. Your project report should be placed on GitHub in the same repository you used for Milestones 1 and 2. Create a new markdown file called milestone-3.md that contains the following.
-
-Clearly document your efforts towards achieving the project methodology since last milestone (Milestone 2).
-* Identify tasks achieved from your backlog
-* Document the product increments (an agile term for the things you produce) generated in this milestone
-* Bind tasks, code artifacts, and documentation together
-
-# Progress Report (insert date here)
+# Progress Report 05/13/2022
 ## Overview
-(insert brief overview of efforts made)
+During this milestone and after feedback from the professor in Milestone 2 we began researching different APIs to move away from static allow and deny lists. Most of the APIs we looked at required a paid subscription or just produced a text/csv file of known malicious links. We found a free API from [IPQualityScore](https://www.ipqualityscore.com/) that lets users register for an account and receive up to 200 API calls a day and 5000 API calls a month. IPQualityScore offers an email validation API that will verify email addresses with up to a 99.9% accuracy and is updated in real time. The email address API checks the email address quality by verifying an email inbox exits, validates email address syntax, verifies the email domain, and checks to see if the email is a known spam or malicious email. The Malicious URL Scanner API scans links in real time and will detect suspicious, phishing, or malicious links. Since IPQualityScore offers real-time detection for emails and URLs we chose to go with them over the static allow/deny list so our Extension can be more future proof. We had implement API calls in the `background.js` file and re-validate using the API response. This caused us to revisit some of our outcomes from Milestone 2 and reformat them so they handle the API responses.
 
 ## Outcomes
-(brief overview of outcomes - what did you achieve?)
 
-also list them out like this:
-* outcome 1
-* outcome 2
+* Identify an API for email and URL validation
+* Implement said API into our Chrome Extension
+* Validate email address based on API response
+* Validate URLs based on API response
+* Manipulate CSS of email or URL based on API response
+* Successfully implemented version 1 of No-Phishing-Zone
 
 ## Hinderances
-(insert brief discussion of challenges encountered)
+After implementing the API several of our hinderances from Milestone 2 were negated. With the implementation of the API we no longer rely on having to manually update the allow or deny lists since the IPQualityScore API is updated in real time. The issues with had with figuring out the best way to compare the email or URL against the allow/deny list were negated by using the API responses. It took a little bit more legwork to implement the API since we could not originally use the `content.js` script to call an external API, we had to revisit the idea of using a `background.js` file. This along with re-doing outcomes achieved in Milestone 2 added to our development time and reduced the amount of time we have to test for bugs. Another hinderance is a lack of test data. Due to the time constraint of the semester we were unable to gather a list of known malicious/spam emails to use to test our extension, instead we had to rely on the use of our own personal Gmail accounts and test our extension against mail we receive on a daily basis. The spam emails allowed us to verify that our extension can identify suspicious emails and URLs however the testing was not extensive. IPQualityScore only offers up to 200 API calls a day and 5000 API calls a month for their free accounts. They do offer subscriptions however those are primarily for enterprises and the starting price is $499 USD. Due to the API limit we had to modify our install instructions and now require the user to register for an IPQualityScore account instead of just using a single API key for all users of our extension. Also due to the time constraint we were unable to fully package our Chrome Extension and deploy it to the Chrome Extension Store. Currently the user must download it from our Git repository, load it into Chrome, and enable developer mode to use it.
