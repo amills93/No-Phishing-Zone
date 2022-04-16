@@ -23,7 +23,7 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 ## Project Goals
 *	Assist in vetting links as legitimate or as suspected to be malicious
 *	Very that the sender of the email is not spoofing an address
-*	Increase the overall safe browsing habits of a user, without having the ability to walk them through a cybersecurity training course
+*	Increase the overall safe email browsing habits of a user, without having the ability to walk them through a cybersecurity training course
 
 ## Project Methodology
 (specific methodology followed in the project, reuse from milestone 1/2, update if scope changed)
@@ -31,13 +31,17 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 ## Results / Findings
 (brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
 
-(bulleted lists can also be helpful to structure your results discussion)
-* outcome 1
-* outcome 2
+* Ingest and the DOM content of a Google Email
+* Identify the email and body sections of an email from the DOM
+* Identify the class or ID name of the senders email and email body
+* Successfully parse the DOM and store the email and URLs in the email body
+* Identify an API that can validate and analyze emails and URLs
+* Validate email agaisnt an API
+* Validate URLs in the Body of the email against an API
+* Manipulate the CSS of the senders email and the URLs in the email body based on validation results
 
-## Install Instructions (if applicable)
+## Install Instructions
 ### Requirements
-(list of any software / hardware requirements necessary to run the code/app/etc)
 * [Google Mail Account](https://support.google.com/mail/answer/56256?hl=en)
 * [Google Chrome Browser](https://www.google.com/chrome/index.html?msclkid=f61664c0b52a11eca13a87e11c8e1852)
 * [IPQualityScore Account](https://www.ipqualityscore.com/create-account) for API Key
@@ -45,7 +49,7 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 * [Git Bash](https://git-scm.com/downloads)
 
 ### Installation Instructions
-Refer to the links above for installation instructions for the require software.
+Refer to the links above for installation instructions for the required software.
 
 ### Getting started
 1. Clone the No-Phishing-Zone GitHub Repository `git clone https://github.com/amills93/No-Phishing-Zone.git`
