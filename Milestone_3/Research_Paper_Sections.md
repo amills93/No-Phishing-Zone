@@ -31,4 +31,10 @@ Related works
 -	Effectiveness of browser extension.
 -	Advantages of using No Phishing Zone.
 ## Conclusion and future work
+- Conclusion
+- Future Work - Partial Written but may need to expand more on what is currently written on the [finalreport.md](https://github.com/amills93/No-Phishing-Zone/blob/main/Milestone_3/finalreport.md#future-work) i.e.
+	* Implement more features offered by [IPQualityScore](https://www.ipqualityscore.com/documentation/overview) and discuss the other API responses that are offered
+	* Implement a reporting feature to report malicious links not caught by our app
+	* Provide cross browser support (i.e. Mozilla, Edge, etc...)
+	* Provide cross mail client platform (Outlook, Yahoo, etc)
 ## Citations
