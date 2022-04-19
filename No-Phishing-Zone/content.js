@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
             /* Grabs the Senders Email based on the 'go' class
               Note: This is only valid for Google Mail in Google Chrome*/
             senderEmail = document.getElementsByClassName("go").item(0);
-            console.log(senderEmail);
+//            console.log(senderEmail);
             /* Calls the ValidateEmail function */
             if (senderEmail != null) {
               ValidateEmail(senderEmail);
