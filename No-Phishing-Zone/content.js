@@ -2,6 +2,37 @@ var senderEmail;
 var senderName;
 var emailBody;
 
+/* Listens for when the active history entry changes while the user navigates within
+mail.google.com/* This will cause the extension to execute whenever a user loads a new email*/
+window.addEventListener('popstate', function () {
+      /* Time used to ensure the full page has loaded */
+      setTimeout(() => {
+            /* Grabs the Senders Email based on the 'go' class
+              Note: This is only valid for Google Mail in Google Chrome*/
+            senderEmail = document.getElementsByClassName("go").item(0);
+//            console.log(senderEmail);
+            /* Calls the ValidateEmail function
+               Checks to ensure that an email address has been grabbed */
+            if (senderEmail != null) {
+              ValidateEmail(senderEmail);
+            } else {
+              console.log("No email address in the 'go' class.")
+            }
+
+            // senderName = document.getElementsByClassName("gD");
+            // console.log(senderName.item(0));
+
+            /* Email Body for Google Mail has an id=:2h
+              Note: This is only valid for Google Mail in Google Chrome */
+            emailBody = document.getElementById(":2h");
+//            console.log(emailBody);
+            /* Calls the ValidateURLS Function */
+            ValidateURLS(emailBody);
+        }, 400);
+})
+
+/* Listens for a window load event (i.e. Will execute whenever the user
+  refreshes the page since popstate does not work on refresh events.) */
 window.addEventListener('load', function () {
       /* Time used to ensure the full page has loaded */
       setTimeout(() => {
@@ -9,7 +40,8 @@ window.addEventListener('load', function () {
               Note: This is only valid for Google Mail in Google Chrome*/
             senderEmail = document.getElementsByClassName("go").item(0);
 //            console.log(senderEmail);
-            /* Calls the ValidateEmail function */
+            /* Calls the ValidateEmail function
+               Checks to ensure that an email address has been grabbed */
             if (senderEmail != null) {
               ValidateEmail(senderEmail);
             } else {
@@ -47,7 +79,7 @@ function ValidateEmail(mail)
       console.log("contentscript sending email");
     });
 
-/* Waits for a response from the backgroun.js to apply the CSS to the
+/* Waits for a response from the background.js to apply the CSS to the
 senders email based on validity */
   chrome.runtime.onMessage.addListener(
     function(request, sender) {
