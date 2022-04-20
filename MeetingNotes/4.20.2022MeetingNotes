@@ -1,0 +1,30 @@
+4.20.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[ ] Adam Mills – OOO due to security conference.
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+
+	We found an API that works and that we were able to implement into the extension. 
+    -	Called “IP Quality Score” (ipqualityscore.com). Checks if it is valid, check if it belongs to someone that is a known bad actor.
+    -	Does a couple of other cool things that we will be able to take advantage of for this project.
+    -	Dr. Hale, “this is really super good”. Slam dunk Chris!
+    -	Can we implement more data from this API into the extension? This way we can give the user a more information rich experience. 
+
+Dr. Hale recommended using DOMContentLoaded as a way to replace Load, so that the code is a bit cleaner and will run the code after the page is fully loaded and parsed.
+Better conceptualize how better to consume the information from the API. 
+    -	How do we want to show this data?
+       o	When the pop state changes?
+       o	Display the risk score number next to the NoPhishingZone icon?
+    -	Now that we know the API is much for information rich, we should take advantage of it.
+
+Other then making this change for the extension, we are just writing the paper. 
+
+Dr. Hale wants us to include a way to track who is doing what part of the paper, and he likes the way that we currently have it set up. So we will want to keep working that way. 
+
+He also likes the way that we incorporated his previous guidance on our outline, into our new outline. He likes our progress so far. 
+
+Milestone 2 looked really good. 
+
+Wednesday meeting on the week of graduation is optional. 
