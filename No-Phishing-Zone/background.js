@@ -9,6 +9,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
       console.log( "Checking email: " + request.emailToValidate);
       /* Boolean Value for Email Validity */
       var isValid = false;
+
   /* If Else statement evaluates the email address based on the response from the api.
   Reponse from the API can be described as such:
     valid - Does this email address appear valid? - Booblean
