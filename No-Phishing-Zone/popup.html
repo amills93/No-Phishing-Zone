@@ -1,15 +1,23 @@
 <!doctype html>
 <html>
   <head>
-    <title>No Phishing Zone</title>
+    <title>No-Phishing-Zone</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <script src="popup.js"></script>
     <script type="text/javascript" src="jQuery.js"></script>
     <body>
-      <h2>No Phishing Zone</h2>
+      <h2>No-Phishing-Zone</h2>
       <p>Welcome to No-Phishing-Zone, we will help identify potentially malicious links
       and highlight them <span style="color:red">red</span> for bad and <span style="color:green">green</span> for good. The choice to click on a link is yours,
       but we are here to help.</p>
+      <b>Email Risk Ratings:</b>
+      <ul>
+      <li style="color:red"><b>0</b> = invalid email address</li>
+      <li style="color:red"><b>1</b> = dns valid, unreachable mail server</li>
+      <li style="color:yellow"><b>2</b> = dns valid, temporary mail rejection error</li>
+      <li style="color:green"><b>3</b> = dns valid, accepts all mail</li>
+      <li style="color:green"><b>4</b> = dns valid, verified email exists</li>
+      </ul>
     </body>
   </head>
 </html>

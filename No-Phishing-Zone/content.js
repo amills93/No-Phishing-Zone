@@ -1,34 +1,41 @@
 var senderEmail;
-var senderName;
 var emailBody;
-
+var currentURL;
 /* Listens for when the active history entry changes while the user navigates within
 mail.google.com/* This will cause the extension to execute whenever a user loads a new email*/
 window.addEventListener('popstate', function () {
-      /* Time used to ensure the full page has loaded */
-      setTimeout(() => {
-            /* Grabs the Senders Email based on the 'go' class
-              Note: This is only valid for Google Mail in Google Chrome*/
-            senderEmail = document.getElementsByClassName("go").item(0);
+  /* Time used to ensure the full page has loaded */
+  setTimeout(() => {
+        /* Grabs the Senders Email based on the 'go' class
+          Note: This is only valid for Google Mail in Google Chrome*/
+        senderEmail = document.getElementsByClassName("go").item(0);
 //            console.log(senderEmail);
-            /* Calls the ValidateEmail function
-               Checks to ensure that an email address has been grabbed */
-            if (senderEmail != null) {
-              ValidateEmail(senderEmail);
-            } else {
-              console.log("No email address in the 'go' class.")
-            }
+        /* Calls the ValidateEmail function
+           Checks to ensure that an email address has been grabbed */
+        if (senderEmail != null) {
+          ValidateEmail(senderEmail);
+        } else {
+          console.log("No email address in the 'go' class.")
+        }
 
-            // senderName = document.getElementsByClassName("gD");
-            // console.log(senderName.item(0));
-
-            /* Email Body for Google Mail has an id=:2h
-              Note: This is only valid for Google Mail in Google Chrome */
-            emailBody = document.getElementById(":2h");
+        /* Email Body for Google Mail has an id=:2h
+          Note: This is only valid for Google Mail in Google Chrome */
+        emailBody = document.getElementById(":2h");
 //            console.log(emailBody);
-            /* Calls the ValidateURLS Function */
+        /* Calls the ValidateURLS Function */
+        if (emailBody == null) {
+          /* This was custom coded because when you navigate through the Google email
+          web client the 'id=":2h"' changed randomly the only common denominator was the class `a3s aiL` */
+            emailBody = document.getElementsByClassName("a3s aiL").item(0)
+            if (emailBody != null) {
+              ValidateURLS(emailBody);
+            } else {
+              console.log("Could not grab email body based on class or ID.")
+            }
+        } else {
             ValidateURLS(emailBody);
-        }, 400);
+        }
+    }, 400);
 })
 
 /* Listens for a window load event (i.e. Will execute whenever the user
@@ -48,15 +55,17 @@ window.addEventListener('load', function () {
               console.log("No email address in the 'go' class.")
             }
 
-            // senderName = document.getElementsByClassName("gD");
-            // console.log(senderName.item(0));
-
             /* Email Body for Google Mail has an id=:2h
               Note: This is only valid for Google Mail in Google Chrome */
             emailBody = document.getElementById(":2h");
+
 //            console.log(emailBody);
             /* Calls the ValidateURLS Function */
-            ValidateURLS(emailBody);
+            if (emailBody != null) {
+//              ValidateURLS(emailBody);
+            } else {
+              console.log("No email body in the ':2h' ID.")
+            }
         }, 400);
 })
 
@@ -79,19 +88,6 @@ function ValidateEmail(mail)
       console.log("contentscript sending email");
     });
 
-/* Waits for a response from the background.js to apply the CSS to the
-senders email based on validity */
-  chrome.runtime.onMessage.addListener(
-    function(request, sender) {
-    console.log("Contentscript has received an email message from from background script: " + request.message);
-        if (request.message) {
-          console.log("Valid Email")
-          senderEmail.style.color = "green";
-        } else {
-          console.log("Invalid Email")
-          senderEmail.style.color = "red";
-        }
-    });
 }
 
 /* Function will validate a URL in an email based on the documentation at
@@ -113,21 +109,62 @@ function ValidateURLS(url)
     url = String(myNodeList[i]).replace(/^https?:\/\//, 'https%3A%2F%2F');
     url = url.split("/")[0];
     console.log(url);
+    currentURL = myNodeList[i];
     chrome.runtime.sendMessage({"type": "URL", "urlToValidate": url}, function(response) {
         console.log("contentscript sending URL");
       });
+
+  // Inside here it works and changes the HTML however it constanly listens and will add on
+  //extra elements to the emailSenders name.
+
   /* Waits for a response from the backgroun.js to apply the CSS to the
   senders email based on validity */
-    chrome.runtime.onMessage.addListener(
-      function(request, sender) {
-      console.log("Contentscript has received a URL message from from background script: " + request.message);
-          if (request.message) {
-            console.log("Valid URL")
-            myNodeList[i].style.color = "green";
-          } else {
-            console.log("Invalid URL")
-            myNodeList[i].style.color = "red";
-          }
-      });
+//     chrome.runtime.onMessage.addListener(
+//       function(request, sender) {
+//         if (request.type == "URL") {
+//           console.log("Contentscript has received a URL message from from background script: " + request.message);
+//           if (request.message) {
+//             console.log("Valid URL " + request.risk_rating)
+// //            myNodeList[i].textContent += " [" + request.risk_rating + "] " + currentURL;
+//             myNodeList[i].style.color = "green";
+//           } else {
+//             console.log("Invalid URL " + request.risk_rating)
+// //            myNodeList[i].textContent += " [" + request.risk_rating + "]";
+//             myNodeList[i].style.color = "red";
+//           }
+//         }
+//       });
   }
 }
+
+/* Waits for a response from the background.js to apply the CSS to the
+senders email based on validity */
+chrome.runtime.onMessage.addListener(
+  function(request, sender) {
+    if (request.type == "email") {
+        console.log("Contentscript has received an email message from from background script: " + request.message);
+        if (request.message) {
+          console.log("Valid Email " + request.risk_rating)
+          senderEmail.textContent += " [" + request.risk_rating + "]";
+          senderEmail.style.color = "green";
+        } else {
+          console.log("Invalid Email " + request.risk_rating)
+          senderEmail.textContent += " [" + request.risk_rating + "]";
+          senderEmail.style.color = "red";
+        }
+    }
+    else if (request.type == "URL") {
+      console.log("Contentscript has received a URL message from from background script: " + request.message);
+      if (request.message) {
+        console.log("Valid URL " + request.risk_rating)
+      /* Adding Risk Rating for URLs breaks some of the embeded image URLs
+      currently we are scoping it out */
+//        currentURL.textContent += " [" + request.risk_rating + "] " + currentURL;
+        currentURL.style.color = "green";
+      } else {
+        console.log("Invalid URL " + request.risk_rating)
+//        currentURL.textContent += " [" + request.risk_rating + "]";
+        currentURL.style.color = "red";
+      }
+    }
+  });

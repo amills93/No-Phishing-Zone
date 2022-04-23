@@ -1,7 +1,7 @@
 /* Waits for content.js to send the emailToValidate as a message before making an API call
 and validating the email address */
-chrome.runtime.onMessage.addListener(function(request, sender) {
 
+chrome.runtime.onMessage.addListener(function(request, sender) {
 /* If the Request is of type email */
   if (request.type == "email") {
     /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
@@ -9,7 +9,6 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
       console.log( "Checking email: " + request.emailToValidate);
       /* Boolean Value for Email Validity */
       var isValid = false;
-
   /* If Else statement evaluates the email address based on the response from the api.
   Reponse from the API can be described as such:
     valid - Does this email address appear valid? - Booblean
@@ -28,11 +27,11 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
       if (json.valid && !json.disposable && json.overall_score >= 3) {
         console.log("Valid Email Address")
         isValid = true;
-        returnMessage(isValid)
+        returnMessage(request.type, isValid, json.overall_score)
       } else {
         console.log("Invalid Email Address")
         isValid = false;
-        returnMessage(isValid)
+        returnMessage(request.type, isValid, json.overall_score)
       }
      });
    }
@@ -49,20 +48,25 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
      malware - Is this URL associated with malware or viruses? - Booblean
      parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
      spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
+     risk_score -
+       Risk Scores < 80 - Safe
+       Risk Scores >= 75 - suspicious - usually due to patterns associated with malicious links.
+       Risk Scores >= 85 - high risk - strong confidence the URL is malicious.
+       Risk Scores = 100 AND Phishing = "true" OR Malware = "true" - indicates confirmed malware or phishing activity in the past 24-48 hours.
    */
    // console.log(json.phishing);
    // console.log(json.malware);
    // console.log(json.parking);
    // console.log(json.spamming);
 
-       if (!json.phishing && !json.malware && !json.parking && !json.spamming) {
+       if (!json.phishing && !json.malware && !json.parking && !json.spamming && json.risk_score < 80) {
          console.log("Valid URL Address")
          isURLValid = true;
-         returnMessage(isURLValid)
+         returnMessage(request.type, isURLValid, json.risk_score)
        } else {
          console.log("Invalid URL Address")
          isURLValid = false;
-         returnMessage(isURLValid)
+         returnMessage(request.type, isURLValid, json.risk_score)
        }
       });
    }
@@ -71,10 +75,10 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 /* Sends a message back to content.js based on the email Validity.
 - False if Invalid
 - True if Valid */
-function returnMessage(boolValue)
+function returnMessage(requestType, boolValue, risk_rating)
 {
  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.sendMessage(tabs[0].id, {message: boolValue}, function(response) {
+  chrome.tabs.sendMessage(tabs[0].id, {type: requestType, message: boolValue, risk_rating: risk_rating}, function(response) {
     console.log("Background script is sending a message to contentscript: " + boolValue);
   });
 });
