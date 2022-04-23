@@ -50,14 +50,16 @@ When we began implementing the API we learned that API calls are not allowed ins
 ## IV. Results
 -	Effectiveness of browser extension.
 -	Advantages of using No Phishing Zone.
-## V. Conclusion and future work
-- Conclusion
-- Future Work - Partial Written but may need to expand more on what is currently written on the [finalreport.md](https://github.com/amills93/No-Phishing-Zone/blob/main/Milestone_3/finalreport.md#future-work) i.e.
-	* Add support for [Manifest V3](https://developer.chrome.com/blog/mv2-transition/) (requires more work since jQuery is no longer supported in background.js which is why we chose V2)
-	* Implement more features offered by [IPQualityScore](https://www.ipqualityscore.com/documentation/overview) and discuss the other API responses that are offered
-	* Implement a reporting feature to report malicious links/emails not caught by our app
-	* Provide cross browser support (i.e. Mozilla, Edge, etc...)
-	* Provide cross mail client platform (Outlook, Yahoo, etc)
+
+## V. Future Work and Conclusion
+### A. Future Work
+The email and URL API endpoints offer more options that a future user could easily implement in our Chrome Extension to provide more of an analysis, to see the full list of supported API response fields refer to the Email API Documentation and URL API Documentation. (source: https://www.ipqualityscore.com/documentation/overview) Future work could expand on what we did by implementing a more robust analysis of an email address or URL. IPQualityScore also offers a reporting feature where users can report malicious URLs or Emails. Future work could implement this reporting feature into the Extension `popup.html` so suspected links can be added to IP IPQualityScores database. Since IPQualityScore offers a full fraud suite of tools with dedicated APIs we could expand on our application and focus on phishing and malicious links across all websites, however the limited amount of API calls offered by IPQualityScore would not be able to support that on the free subscription model. Future researches could build their own database of known malicious domains, similar to what is offered by IPQualityScore, to not be limited by the daily API call limit or further research can be done on other opensource APIs that do not have a daily limit. We were able to find several sites that contained updated lists of known malicious URLs, these lists can be complied into a single allow list and hosted inside the No-Phishing-Zone Chrome Extension folder and updated on a semi-regular basis however this was deemed out of scope for our semester project. Implementing our own allow/deny list would eliminate the reliance on a 3rd parties API, however the richness of the API and responses offered seemed to align with the scope of our semester project.
+
+Due to the timeframe of the semester we had to limit our scope to only focus on Chrome Extensions and the Google Email Web Client. Future work can further develop our Extension and expand support to other web browsers and other email web clients. Due to the obfuscation of the DOM elements that identify the senders email address and the body of the email we were only able to identify the `class` and `ids` for Google Emails. However we were able to verify that these `class` and `ids` are unique to all Gmail accounts across multiple browsers. Future researchers can identify the same unique identifiers and apply support to online mail clients like Outlook or Yahoo. Our extension does not analyze attachments in emails, future work can be done to vet the authenticity of an attachment and see if it is malicious or not. Currently we just rely on the fact that if the email is from a suspicious sender it is assume the attachment is malicious. We also used version 2 of the `manifest.json` due to its support of background pages and more importantly `jQuery` in background pages. Future work would see that the `manifest` version is updated to version 3, however that would require more time since we would have to re-work how our application does API calls in the background page. Manifest version 2 is currently will be end of life (EOL) as of January 2023 (source: https://developer.chrome.com/blog/mv2-transition/).
+
+### B. Conclusion
+Insert information for Conclusion Here
+
 ## VI. Citations
 [x]“Content scripts,” Chrome Developers.  [Online]. Available: https://developer.chrome.com/docs/extensions/mv2/content_scripts/
 
@@ -69,8 +71,12 @@ When we began implementing the API we learned that API calls are not allowed ins
 
 [x]IPQualityScore.com, “Email Validation API Documentation | IPQualityScore.com.”  [Online]. Available: https://www.ipqualityscore.com/documentation/email-validation/overview
 
+[x]IPQualityScore.com, "IPQualityScore Homepage | IPQualityScore.com" [Online]. Available: https://www.ipqualityscore.com/documentation/overview
+
 [x]“PhishTank,” PhishTank.  [Online]. Available: https://www.phishtank.com/
 
 [x]“CRDF Threat Center,” CRDF Threat Center API.  [Online]. Available: https://threatcenter.crdf.fr/
 
 [x]IPQualityScore.com, “Malicious URL Scanner API Documentation | IPQualityScore.com.”  [Online]. Available: https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview
+
+[x]“The transition of Chrome extensions to Manifest V3,” Chrome Developers. [Online]. Available: https://developer.chrome.com/blog/mv2-transition/
