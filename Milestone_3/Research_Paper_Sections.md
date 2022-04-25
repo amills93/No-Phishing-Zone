@@ -4,10 +4,10 @@ Phishing, smishing, vishing… these attacks are often among the most simplistic
 In a large business organization, an end-user might be instructed to undergo security awareness training courses to instill safe practices for working in the digital age. But apart from those people, the average person does not receive any kind of training. What if we could bridge this knowledge gap with security awareness tooling?
 No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used social engineering tricks and identify suspicious sending domains, language, key triggers, and perform link validation while a user browses the internet. No-Phishing-Zone will flag those suspicious items and notify the user of the malicious intent leaving the option to continue up to the user. Often users are merely trying to live their lives and do things as quickly as possible, so any tool that helps them stay safe is a good one. No-Phishing-Zone is meant to supplement a user’s safe browsing habits and catch suspicious behaviors which may have slipped by them.
 The specific goals for No-Phishing-Zone are to deliver a tool that:
-•	Assists with spotting suspicious language which may be a social engineering attempt.
-•	Assist in vetting links as legitimate or as suspected to be malicious.
-•	Very that the sender of the email is not spoofing an address.
-•	Increase the overall safe browsing habits of a user, without having the ability to walk them through a cybersecurity training course.
+- Assists with spotting suspicious language which may be a social engineering attempt.
+- Assist in vetting links as legitimate or as suspected to be malicious.
+- Very that the sender of the email is not spoofing an address.
+- Increase the overall safe browsing habits of a user, without having the ability to walk them through a cybersecurity training course.
 ## I. Background
 Issue of phishing
 - Definition of phishing.
