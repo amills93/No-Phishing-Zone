@@ -3,7 +3,7 @@ body {
   min-height: 250px;
   overflow-x: hidden;
   padding: 5px;
-  background-color: coral;
+  background-color: #e6e6e6;
   border-style: inset;
   border-color: black;
 }

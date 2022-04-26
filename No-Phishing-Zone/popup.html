@@ -7,17 +7,27 @@
     <script type="text/javascript" src="jQuery.js"></script>
     <body>
       <h2>No-Phishing-Zone</h2>
-      <p>Welcome to No-Phishing-Zone, we will help identify potentially malicious links
-      and highlight them <span style="color:red">red</span> for bad and <span style="color:green">green</span> for good. The choice to click on a link is yours,
+      <p>Welcome to <b>No-Phishing-Zone</b>, we will help identify potentially malicious links
+      and highlight them <b style="color:red">red for bad</b>, <b style="color:orange">orange for suspicious</b>, and <b style="color:green">green for good</b>. Refer to the risk rating for each email and URL. Ultimately, the choice to click on a link is yours,
       but we are here to help.</p>
+      <p>Refer to the Risk Ratings/Scores for descriptions. If the email or link is highlighted in <b style="color:purple">purple</b> the MAX API Calls for the day has been reached.</p>
       <b>Email Risk Ratings:</b>
       <ul>
-      <li style="color:red"><b>0</b> = invalid email address</li>
-      <li style="color:red"><b>1</b> = dns valid, unreachable mail server</li>
-      <li style="color:yellow"><b>2</b> = dns valid, temporary mail rejection error</li>
-      <li style="color:green"><b>3</b> = dns valid, accepts all mail</li>
-      <li style="color:green"><b>4</b> = dns valid, verified email exists</li>
-      <li style="color:red"><b>Undefined</b> = Max API Calls per Day Hit</li>
+      <li style="color:red"><b>0</b> - invalid email address</li>
+      <li style="color:red"><b>1</b> - dns valid, unreachable mail server</li>
+      <li style="color:orange"><b>2</b> - dns valid, temporary mail rejection error</li>
+      <li style="color:green"><b>3</b> - dns valid, accepts all mail</li>
+      <li style="color:green"><b>4</b> - dns valid, verified email exists</li>
+      <li style="color:purple"><b>No Rating</b> - Max API Calls per Day Hit</li>
+      </ul>
+      <br>
+      <b>URL Risk Scores:</b>
+      <ul>
+      <li style="color:green"><b>< 80</b> - Safe</li>
+      <li style="color:orange"><b>>= 75</b> - Suspicious, usually due to patterns associated with malicious links.</li>
+      <li style="color:red"><b>>= 85</b> - high risk, strong confidence the URL is malicious.</li>
+      <li style="color:red"><b>100</b> - Confirmed malware or phishing activity in the past 24-48 hours.</li>
+      <li style="color:purple"><b>No Rating</b> - Max API Calls per Day Hit</li>
       </ul>
     </body>
   </head>

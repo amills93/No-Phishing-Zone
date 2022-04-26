@@ -156,6 +156,16 @@ chrome.runtime.onMessage.addListener(
           }
           senderEmail.textContent += " [" + request.risk_rating + "]/[4]";
           senderEmail.style.color = "green";
+        } else if (request.risk_rating == 2) {
+          if (DEBUG) {
+            console.log("dns valid, temporary mail rejection error")
+          }
+          senderEmail.style.color = "orange";
+        } else if (request.risk_rating == null) {
+          if (DEBUG) {
+            console.log("No more API Calls for the day")
+          }
+          senderEmail.style.color = "purple";
         } else {
           if (DEBUG) {
             console.log("Invalid Email " + request.risk_rating)
@@ -169,16 +179,26 @@ chrome.runtime.onMessage.addListener(
         console.log("Contentscript has received a URL message from from background script: " + request.message);
         console.log("URL Valid: " + request.message + " Risk Rating: " + request.risk_rating + " Position: " + request.position);
       }
-        if (request.message) {
+        if (request.message && request.risk_rating <= 80) {
           if (DEBUG) {
             console.log("Valid URL " + request.risk_rating)
           }
         /* Adding Risk Rating for URLs breaks some of the embeded image URLs
-        currently we are scoping it out */
+        so we do not add a risk rating to them. */
           if (myNodeList[request.position].childNodes[1] == null) {
             myNodeList[request.position].textContent += " [" + request.risk_rating + "] ";
           }
           myNodeList[request.position].style.color = "green";
+        } else if (request.risk_rating >= 75 && request.risk_rating < 85){
+          if (DEBUG) {
+            console.log("Suspicious, usually due to patterns associated with malicious links.")
+          }
+          myNodeList[request.position].style.color = "orange";
+        } else if (request.risk_rating == null){
+          if (DEBUG) {
+            console.log("No more API Calls for the day")
+          }
+          myNodeList[request.position].style.color = "purple";
         } else {
           if (DEBUG) {
             console.log("Invalid URL " + request.risk_rating)
