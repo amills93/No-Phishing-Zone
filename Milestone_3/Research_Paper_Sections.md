@@ -11,20 +11,27 @@ The specific goals for No-Phishing-Zone are to deliver a tool that:
 ## I. Background
 Issue of phishing
 - Brief history of phishing.
+
 Though the date of the first phishing attack is not known, the practice originated sometime in the year 1995 on the America Online (AOL) internet chatroom and email service [2]. The attack has grown quite complex since then, but the fundamentals of the attack have stayed the same. 
 - Definition of phishing.
+
 The National Institute of Science and Technology (NIST) defines Phishing as “A technique for attempting to acquire sensitive data, such as bank account numbers, through a fraudulent solicitation in email or on a Web site, in which the perpetrator masquerades as a legitimate business or reputable person” [1]. 
+
 ## II. Introduction
 Framing issue of phishing as a behavioral problem, not entirely a technical one.
 - Delay between attack and fallout from attack.
+
 As Phishing is taking advantage of a victim’s trust or lack of knowledge, it is not necessarily a technical attack as much as a behavioral problem. This is the reason why it can come in so many different forms (i.e. phishing, vishing, smishing), the attack is using technology to trick an individual into giving the attacker sensitive information. The sensitive information will then be used to log into the victims account later and the attacker will masquerade as the victim. This is a form of identity theft, and a successful phishing attack almost always leads to the victim having their identity stolen in some way. Much of the reason phishing was successful when the internet was in its infancy is the same reason why it is successful now; individuals are not familiar with the attack and do not know what to look out for, or what to be weary of. This can be especially difficult because the attack does not immediately result in blinking warnings or notifications, as there is usually a delay between a successful phishing attack and the victim realizing the fallout from the attack.
 - Attackers’ techniques
 •	Different types of attacks, and current state of situation should all be covered.
+
 There are generally four different types of phishing attacks: Smishing, Vishing, Email Phishing, and Angler Phishing. Smishing is when phishing attacks are done over SMS messages, Vishing is done over voice telephone calls, Angler Phishing is a newer attack that targets victims over social media, and finally is email phishing which is the subject of this paper [3]. While the method of the attack may change, the deception of the attacker convincing the victim that sensitive information needs to be given over is a common thread.
 - How these attacks happen.
 	- Why these attacks happen.
 	- Genesis of our project idea and why defenses for these attacks are important.
+	
 Phishing attacks have been around since internet access has become widely available, and will continue to be around for the same reason; human weakness and ignorance of the danger of others online. The complexity of the internet and computers is an issue for many users, young and old, rich and poor, and this is why phishing attacks are successful. The integration of computers into our daily lives has facilitated a need of them to live our lives, but fully understanding how these systems work is not imperative to using them. Here in lies the danger. This is the reason we focused on this subject for this project, because while some have a good ability to detect a “phishy” email, not everyone does. No Phishing Zone was designed to help fill this skills gap, so that everyone can use web email more securely.
+
 - Impacts we believe this will have in the current situation
 We believe that the web browser extension that we created will help to lower the risks of individuals falling for phishing attacks, by showing them if a link is likely safe or not. While this is not a silver bullet for the issue of phishing, it can greatly help someone that lacks the skills of identifying phishy emails. 
 Related works
@@ -88,6 +95,8 @@ Insert information for Conclusion Here
 [x]“The transition of Chrome extensions to Manifest V3,” Chrome Developers. [Online]. Available: https://developer.chrome.com/blog/mv2-transition/
 
 [1] R. Shirley. 2007. RFC 4949 - internet security glossary, version 2. (August 2007). Retrieved April 25, 2022 from https://datatracker.ietf.org/doc/html/rfc4949 
+
 [2] KnowBe4. 2022. History of phishing. (2022). Retrieved April 25, 2022 from https://www.phishing.org/history-of-phishing 
+
 [3] Luke Irwin. 2022. The 5 most common types of phishing attack. (March 2022). Retrieved April 25, 2022 from https://www.itgovernance.eu/blog/en/the-5-most-common-types-of-phishing-attack 
 
