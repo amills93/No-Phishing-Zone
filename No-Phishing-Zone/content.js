@@ -15,7 +15,9 @@ window.addEventListener('popstate', function () {
         /* Grabs the Senders Email based on the 'go' class
           Note: This is only valid for Google Mail in Google Chrome*/
         senderEmail = document.getElementsByClassName("go").item(0);
-//            console.log(senderEmail);
+        if (DEBUG) {
+          console.log(senderEmail);
+        }
         /* Calls the ValidateEmail function
            Checks to ensure that an email address has been grabbed */
         if (senderEmail != null) {
@@ -27,7 +29,9 @@ window.addEventListener('popstate', function () {
         /* Email Body for Google Mail has an id=:2h
           Note: This is only valid for Google Mail in Google Chrome */
         emailBody = document.getElementById(":2h");
-//            console.log(emailBody);
+        if (DEBUG) {
+          console.log(emailBody);
+        }
         /* Calls the ValidateURLS Function */
         if (emailBody == null) {
           /* This was custom coded because when you navigate through the Google email
@@ -52,7 +56,9 @@ window.addEventListener('load', function () {
             /* Grabs the Senders Email based on the 'go' class
               Note: This is only valid for Google Mail in Google Chrome*/
             senderEmail = document.getElementsByClassName("go").item(0);
-//            console.log(senderEmail);
+            if (DEBUG) {
+              console.log(senderEmail);
+            }
             /* Calls the ValidateEmail function
                Checks to ensure that an email address has been grabbed */
             if (senderEmail != null) {
@@ -64,8 +70,9 @@ window.addEventListener('load', function () {
             /* Email Body for Google Mail has an id=:2h
               Note: This is only valid for Google Mail in Google Chrome */
             emailBody = document.getElementById(":2h");
-
-//            console.log(emailBody);
+            if (DEBUG) {
+              console.log(emailBody);
+            }
             /* Calls the ValidateURLS Function */
             if (emailBody != null) {
               ValidateURLS(emailBody);
@@ -160,9 +167,7 @@ chrome.runtime.onMessage.addListener(
     else if (request.type == "URL") {
       if (DEBUG) {
         console.log("Contentscript has received a URL message from from background script: " + request.message);
-        console.log(request.message);
-        console.log(request.risk_rating);
-        console.log(request.position);
+        console.log("URL Valid: " + request.message + " Risk Rating: " + request.risk_rating + " Position: " + request.position);
       }
         if (request.message) {
           if (DEBUG) {
@@ -170,13 +175,17 @@ chrome.runtime.onMessage.addListener(
           }
         /* Adding Risk Rating for URLs breaks some of the embeded image URLs
         currently we are scoping it out */
-          myNodeList[request.position].textContent += " [" + request.risk_rating + "] ";
+          if (myNodeList[request.position].childNodes[1] == null) {
+            myNodeList[request.position].textContent += " [" + request.risk_rating + "] ";
+          }
           myNodeList[request.position].style.color = "green";
         } else {
           if (DEBUG) {
             console.log("Invalid URL " + request.risk_rating)
           }
-          myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
+          if (myNodeList[request.position].childNodes[1] == null) {
+            myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
+          }
           myNodeList[request.position].style.color = "red";
         }
     }

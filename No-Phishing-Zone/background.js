@@ -22,9 +22,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
         4 = dns valid, verified email exists
       */
       if (DEBUG) {
-        console.log(json.valid)
-        console.log(json.disposable)
-        console.log(json.overall_score)
+        console.log("json.valid: " + json.valid + " json.disposable: " + json.disposable + " json.overall_score: " + json.overall_score)
       }
 
       if (json.valid && !json.disposable && json.overall_score >= 3) {
@@ -61,11 +59,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
          Risk Scores = 100 AND Phishing = "true" OR Malware = "true" - indicates confirmed malware or phishing activity in the past 24-48 hours.
      */
      if (DEBUG) {
-       console.log(json.phishing);
-       console.log(json.malware);
-       console.log(json.parking);
-       console.log(json.spamming);
-       console.log(json.risk_score);
+       console.log("json.phishing: " + json.phishing + " json.malware: " + json.malware + " json.parking: " + json.parking + " json.spamming: " + json.spamming + " json.risk_score: " + json.risk_score)
       }
 
          if (!json.phishing && !json.malware && !json.parking && !json.spamming && json.risk_score < 80) {
