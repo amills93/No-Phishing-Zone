@@ -143,30 +143,38 @@ function ValidateURLS(url)
 }
 
 /* Waits for a response from the background.js to apply the CSS to the
-senders email or URLs based on validity */
+senders email or URLs based on validity and risk score per IPQualityScore API. */
 chrome.runtime.onMessage.addListener(
   function(request, sender) {
     if (request.type == "email") {
         if (DEBUG) {
           console.log("Contentscript has received an email message from from background script: " + request.message);
         }
-        if (request.message) {
+        /* Checks if the Email is Valid (true) and that the Risk Rating is >= 3 */
+        if (request.message && request.risk_rating >= 3) {
           if (DEBUG) {
             console.log("Valid Email " + request.risk_rating)
           }
           senderEmail.textContent += " [" + request.risk_rating + "]/[4]";
           senderEmail.style.color = "green";
-        } else if (request.risk_rating == 2) {
+        }
+        /* If Risk Rating is 2 the email is suspicious */
+        else if (request.risk_rating == 2) {
           if (DEBUG) {
             console.log("dns valid, temporary mail rejection error")
           }
+          senderEmail.textContent += " [" + request.risk_rating + "]/[4]";
           senderEmail.style.color = "orange";
-        } else if (request.risk_rating == null) {
+        }
+        /* If risk rating returns empty the Max API limit for the day has been reached */
+        else if (request.risk_rating == null) {
           if (DEBUG) {
             console.log("No more API Calls for the day")
           }
           senderEmail.style.color = "purple";
-        } else {
+        }
+        /* If non of the above match the email is Malicious and marked red */
+        else {
           if (DEBUG) {
             console.log("Invalid Email " + request.risk_rating)
           }
@@ -179,34 +187,48 @@ chrome.runtime.onMessage.addListener(
         console.log("Contentscript has received a URL message from from background script: " + request.message);
         console.log("URL Valid: " + request.message + " Risk Rating: " + request.risk_rating + " Position: " + request.position);
       }
-        if (request.message && request.risk_rating <= 80) {
-          if (DEBUG) {
-            console.log("Valid URL " + request.risk_rating)
-          }
+      /* Checks if the message is True and if the Risk Rating is less than 80 indicating a safe URL */
+      if (request.message && request.risk_rating < 80) {
+        if (DEBUG) {
+          console.log("Valid URL " + request.risk_rating)
+        }
+      /* Adding Risk Rating for URLs breaks some of the embeded image URLs
+      so we do not add a risk rating to them. */
+        if (myNodeList[request.position].childNodes[1] == null) {
+          myNodeList[request.position].textContent += " [" + request.risk_rating + "] ";
+        }
+        myNodeList[request.position].style.color = "green";
+      }
+      /* Checks if risk rating is between 75 and 85 which indicates a suspicious URL. */
+      else if (request.risk_rating >= 80 && request.risk_rating < 85){
+        if (DEBUG) {
+          console.log("Suspicious, usually due to patterns associated with malicious links.")
+        }
         /* Adding Risk Rating for URLs breaks some of the embeded image URLs
         so we do not add a risk rating to them. */
-          if (myNodeList[request.position].childNodes[1] == null) {
-            myNodeList[request.position].textContent += " [" + request.risk_rating + "] ";
-          }
-          myNodeList[request.position].style.color = "green";
-        } else if (request.risk_rating >= 75 && request.risk_rating < 85){
-          if (DEBUG) {
-            console.log("Suspicious, usually due to patterns associated with malicious links.")
-          }
-          myNodeList[request.position].style.color = "orange";
-        } else if (request.risk_rating == null){
-          if (DEBUG) {
-            console.log("No more API Calls for the day")
-          }
-          myNodeList[request.position].style.color = "purple";
-        } else {
-          if (DEBUG) {
-            console.log("Invalid URL " + request.risk_rating)
-          }
-          if (myNodeList[request.position].childNodes[1] == null) {
-            myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
-          }
-          myNodeList[request.position].style.color = "red";
+        if (myNodeList[request.position].childNodes[1] == null) {
+          myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
         }
+        myNodeList[request.position].style.color = "orange";
+      }
+      /* If Risk Rating returns null the max API limit has been reached. */
+      else if (request.risk_rating == null){
+        if (DEBUG) {
+          console.log("No more API Calls for the day")
+        }
+        myNodeList[request.position].style.color = "purple";
+      }
+      /* If non of the above match URL is Malicious and marked red */
+      else {
+        if (DEBUG) {
+          console.log("Invalid URL " + request.risk_rating)
+        }
+        /* Adding Risk Rating for URLs breaks some of the embeded image URLs
+        so we do not add a risk rating to them. */
+        if (myNodeList[request.position].childNodes[1] == null) {
+          myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
+        }
+        myNodeList[request.position].style.color = "red";
+      }
     }
   });
