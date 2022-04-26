@@ -2,6 +2,9 @@
 and validating the email address */
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
+  // var validatedURLS = [];
+  // var riskScores = [];
+
 /* If the Request is of type email */
   if (request.type == "email") {
     /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
@@ -37,48 +40,54 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
    }
    /* If the Request is of type URL */
    else if (request.type == 'URL') {
+     var isValid = false;
+//     $.ajaxSetup({async : false});
      /* API Overview https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview */
-     $.getJSON('https://ipqualityscore.com/api/json/url/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.urlToValidate, function( json ) {
-       console.log( "Checking URL: " + request.urlToValidate);
-       /* Boolean Value for Email Validity */
-       var isURLValid = false;
-   /* If Else statement evaluates the URL address based on the response from the api.
-   Reponse from the API can be described as such:
-     phishing - Is this URL associated with malicious phishing behavior? - Booblean
-     malware - Is this URL associated with malware or viruses? - Booblean
-     parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
-     spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
-     risk_score -
-       Risk Scores < 80 - Safe
-       Risk Scores >= 75 - suspicious - usually due to patterns associated with malicious links.
-       Risk Scores >= 85 - high risk - strong confidence the URL is malicious.
-       Risk Scores = 100 AND Phishing = "true" OR Malware = "true" - indicates confirmed malware or phishing activity in the past 24-48 hours.
-   */
-   // console.log(json.phishing);
-   // console.log(json.malware);
-   // console.log(json.parking);
-   // console.log(json.spamming);
-
-       if (!json.phishing && !json.malware && !json.parking && !json.spamming && json.risk_score < 80) {
-         console.log("Valid URL Address")
-         isURLValid = true;
-         returnMessage(request.type, isURLValid, json.risk_score)
-       } else {
-         console.log("Invalid URL Address")
-         isURLValid = false;
-         returnMessage(request.type, isURLValid, json.risk_score)
-       }
-      });
+     for (let i = 0; i < request.urlToValidate.length; i++) {
+//       console.log(request.urlToValidate[i]);
+       $.getJSON('https://ipqualityscore.com/api/json/url/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.urlToValidate[i], function( json ) {
+         console.log( "Checking URL: " + request.urlToValidate[i]);
+     /* If Else statement evaluates the URL address based on the response from the api.
+     Reponse from the API can be described as such:
+       phishing - Is this URL associated with malicious phishing behavior? - Booblean
+       malware - Is this URL associated with malware or viruses? - Booblean
+       parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
+       spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
+       risk_score -
+         Risk Scores < 80 - Safe
+         Risk Scores >= 75 - suspicious - usually due to patterns associated with malicious links.
+         Risk Scores >= 85 - high risk - strong confidence the URL is malicious.
+         Risk Scores = 100 AND Phishing = "true" OR Malware = "true" - indicates confirmed malware or phishing activity in the past 24-48 hours.
+     */
+     // console.log(json.phishing);
+     // console.log(json.malware);
+     // console.log(json.parking);
+     // console.log(json.spamming);
+         if (!json.phishing && !json.malware && !json.parking && !json.spamming && json.risk_score < 80) {
+           console.log("Valid URL Address")
+           // validatedURLS.push(true);
+           isValid = true;
+           // riskScores.push(json.risk_score);
+           returnMessage(request.type, isValid, json.risk_score, i)
+         } else {
+           console.log("Invalid URL Address")
+           // validatedURLS.push(false);
+           isValid = false;
+           // riskScores.push(json.risk_score);
+           returnMessage(request.type, isValid, json.risk_score, i)
+         }
+        });
+    }
    }
 });
 
 /* Sends a message back to content.js based on the email Validity.
 - False if Invalid
 - True if Valid */
-function returnMessage(requestType, boolValue, risk_rating)
+function returnMessage(requestType, boolValue, risk_rating, position)
 {
  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.sendMessage(tabs[0].id, {type: requestType, message: boolValue, risk_rating: risk_rating}, function(response) {
+  chrome.tabs.sendMessage(tabs[0].id, {type: requestType, message: boolValue, risk_rating: risk_rating, position: position}, function(response) {
     console.log("Background script is sending a message to contentscript: " + boolValue);
   });
 });

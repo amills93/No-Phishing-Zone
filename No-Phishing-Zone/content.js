@@ -1,6 +1,6 @@
 var senderEmail;
 var emailBody;
-var currentURL;
+var myNodeList;
 /* Listens for when the active history entry changes while the user navigates within
 mail.google.com/* This will cause the extension to execute whenever a user loads a new email*/
 window.addEventListener('popstate', function () {
@@ -62,7 +62,7 @@ window.addEventListener('load', function () {
 //            console.log(emailBody);
             /* Calls the ValidateURLS Function */
             if (emailBody != null) {
-//              ValidateURLS(emailBody);
+              ValidateURLS(emailBody);
             } else {
               console.log("No email body in the ':2h' ID.")
             }
@@ -97,10 +97,10 @@ If an email URL is Valid it will change the CSS color to green.
 */
 function ValidateURLS(url)
 {
+  var listOfURLS = [];
   /* Creates a NodeList of all the 'a' tags in the URL Object */
-  const myNodeList = url.querySelectorAll("a");
-//  console.log(myNodeList);
-
+  myNodeList = url.querySelectorAll("a");
+  console.log(myNodeList);
   /* Loops through each a tag in the NodeList and
     attempts to validate it */
   for (let i = 0; i < myNodeList.length; i++) {
@@ -108,33 +108,12 @@ function ValidateURLS(url)
     execute an API call. Note: API calls are not allowed in content.js files*/
     url = String(myNodeList[i]).replace(/^https?:\/\//, 'https%3A%2F%2F');
     url = url.split("/")[0];
+    listOfURLS.push(url);
     console.log(url);
-    currentURL = myNodeList[i];
-    chrome.runtime.sendMessage({"type": "URL", "urlToValidate": url}, function(response) {
-        console.log("contentscript sending URL");
-      });
-
-  // Inside here it works and changes the HTML however it constanly listens and will add on
-  //extra elements to the emailSenders name.
-
-  /* Waits for a response from the backgroun.js to apply the CSS to the
-  senders email based on validity */
-//     chrome.runtime.onMessage.addListener(
-//       function(request, sender) {
-//         if (request.type == "URL") {
-//           console.log("Contentscript has received a URL message from from background script: " + request.message);
-//           if (request.message) {
-//             console.log("Valid URL " + request.risk_rating)
-// //            myNodeList[i].textContent += " [" + request.risk_rating + "] " + currentURL;
-//             myNodeList[i].style.color = "green";
-//           } else {
-//             console.log("Invalid URL " + request.risk_rating)
-// //            myNodeList[i].textContent += " [" + request.risk_rating + "]";
-//             myNodeList[i].style.color = "red";
-//           }
-//         }
-//       });
   }
+  chrome.runtime.sendMessage({"type": "URL", "urlToValidate": listOfURLS}, function(response) {
+      console.log("contentscript sending URL");
+    });
 }
 
 /* Waits for a response from the background.js to apply the CSS to the
@@ -145,26 +124,29 @@ chrome.runtime.onMessage.addListener(
         console.log("Contentscript has received an email message from from background script: " + request.message);
         if (request.message) {
           console.log("Valid Email " + request.risk_rating)
-          senderEmail.textContent += " [" + request.risk_rating + "]";
+          senderEmail.textContent += " [" + request.risk_rating + "]/[4]";
           senderEmail.style.color = "green";
         } else {
           console.log("Invalid Email " + request.risk_rating)
-          senderEmail.textContent += " [" + request.risk_rating + "]";
+          senderEmail.textContent += " [" + request.risk_rating + "]/[4]";
           senderEmail.style.color = "red";
         }
     }
     else if (request.type == "URL") {
       console.log("Contentscript has received a URL message from from background script: " + request.message);
-      if (request.message) {
-        console.log("Valid URL " + request.risk_rating)
-      /* Adding Risk Rating for URLs breaks some of the embeded image URLs
-      currently we are scoping it out */
-//        currentURL.textContent += " [" + request.risk_rating + "] " + currentURL;
-        currentURL.style.color = "green";
-      } else {
-        console.log("Invalid URL " + request.risk_rating)
-//        currentURL.textContent += " [" + request.risk_rating + "]";
-        currentURL.style.color = "red";
-      }
+      console.log(request.message);
+      console.log(request.risk_rating);
+      console.log(request.position)
+        if (request.message) {
+          console.log("Valid URL " + request.risk_rating)
+        /* Adding Risk Rating for URLs breaks some of the embeded image URLs
+        currently we are scoping it out */
+          myNodeList[request.position].textContent += " [" + request.risk_rating + "] ";
+          myNodeList[request.position].style.color = "green";
+        } else {
+          console.log("Invalid URL " + request.risk_rating)
+          myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
+          myNodeList[request.position].style.color = "red";
+        }
     }
   });
