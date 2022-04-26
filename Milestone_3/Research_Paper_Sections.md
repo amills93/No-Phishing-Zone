@@ -33,6 +33,7 @@ There are generally four different types of phishing attacks: Smishing, Vishing,
 Phishing attacks have been around since internet access has become widely available, and will continue to be around for the same reason; human weakness and ignorance of the danger of others online. The complexity of the internet and computers is an issue for many users, young and old, rich and poor, and this is why phishing attacks are successful. The integration of computers into our daily lives has facilitated a need of them to live our lives, but fully understanding how these systems work is not imperative to using them. Here in lies the danger. This is the reason we focused on this subject for this project, because while some have a good ability to detect a “phishy” email, not everyone does. No Phishing Zone was designed to help fill this skills gap, so that everyone can use web email more securely.
 
 - Impacts we believe this will have in the current situation
+
 We believe that the web browser extension that we created will help to lower the risks of individuals falling for phishing attacks, by showing them if a link is likely safe or not. While this is not a silver bullet for the issue of phishing, it can greatly help someone that lacks the skills of identifying phishy emails. 
 Related works
 -	Brief recap of literature review.
