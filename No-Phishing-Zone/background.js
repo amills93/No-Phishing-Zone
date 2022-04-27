@@ -6,7 +6,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 /* If the Request is of type email */
   if (request.type == "email") {
     /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
-    $.getJSON('https://ipqualityscore.com/api/json/email/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.emailToValidate, function( json ) {
+    $.getJSON('https://ipqualityscore.com/api/json/email/<API_KEY>/' + request.emailToValidate, function( json ) {
       console.log( "Checking email: " + request.emailToValidate);
       /* Boolean Value for Email Validity */
       var isValid = false;
@@ -42,7 +42,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
      /* API Overview https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview */
      for (let i = 0; i < request.urlToValidate.length; i++) {
 
-       $.getJSON('https://ipqualityscore.com/api/json/url/DxCYsYizITD6xdeRDgjHj1QWzDTVY49v/' + request.urlToValidate[i], function( json ) {
+       $.getJSON('https://ipqualityscore.com/api/json/url/<API_KEY>/' + request.urlToValidate[i], function( json ) {
         if (DEBUG) {
           console.log( "Checking URL: " + request.urlToValidate[i]);
         }
