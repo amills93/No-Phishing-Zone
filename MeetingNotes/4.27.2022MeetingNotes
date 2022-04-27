@@ -1,0 +1,21 @@
+4.27.2022 No Phishing Zone 
+Team meeting
+Attendance: 
+[X] Adam Mills 
+[X] Chris Schmitt
+[X] Dennis Ugbebor
+[X] Dylan Redden
+
+	Chris was able to implement the changes that we talked about last week. We showed the changes to Dr. Hale. 
+-	We are now seeing the URL risk scores for each link. This also corresponds to a color system.
+
+We might want to use a highwater mark for the whole email up by the top of the email? That way it gives a better representation as to what is in the whole email and can help train users to look for what is malicious in the email.
+Working on issue of checking multiple URLs with our API call limit. This can be an issue as we have only 200 per day.
+
+-	Dr. Hale recommends caching the URLs and then putting them into a dictionary so that we can check the dictionary with one check and not multiple. 
+
+Maybe for the future, instead of putting in a number score we can put in an icon? Stop sign for bad, green check for good? This is not necessary; it would just be a CSS add on that we could do. Have this linked to the high-water mark for the webpage.
+Just working on finishing up documents for the paper. And Dylan will bring them together and format the final paper. He will post it to our Repo for team review and then we can submit the final version to the Canvas page.
+
+We will meet on 5/2 and 5/4.
+Wednesday (5/11) meeting on the week of graduation is cancelled.
