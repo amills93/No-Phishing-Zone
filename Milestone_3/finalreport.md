@@ -26,6 +26,9 @@ During this milestone and after feedback from the professor in Milestone 2 we be
 * Validate URLs in the Body of the email against an API
 * Manipulate the CSS of the senders email and the URLs in the email body based on validation results
 
+### Testing and Verification
+The team decided to conduct only developmental testing because of time constraint, however, the project team ensured that testing and verification of the solution produced the expected outcome. The outcome come of the testing and verification is as shown below, though we did not involve the use of external tester but supervisory validation which was observed during the development of the solution. In addition, no case study was conducted but we hope that during our futuristic update, we will involve some external users and possibly both professionals and non-professional tester to review the usability and conduct survey to rate features and capabilities or impact the solution have on no savvy technology users.
+
 ### Future Work
 The email and URL API endpoints offer more options that a future user could easily implement in our Chrome Extension to provide more of an analysis, to see the full list of supported API response fields refer to the [Email API Documentation](https://www.ipqualityscore.com/documentation/email-validation/overview) and [URL API Documentation](https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview). Future work could expand on what we did by implementing a more robust analysis of an email address or URL.
 
