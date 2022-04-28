@@ -209,6 +209,8 @@ chrome.runtime.onMessage.addListener(
         if (myNodeList[request.position].childNodes[1] == null) {
           myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
         }
+        /* Since the URL is marked as suspicious so should the email */
+        senderEmail.style.color = "orange";
         myNodeList[request.position].style.color = "orange";
       }
       /* If Risk Rating returns null the max API limit has been reached. */
@@ -228,6 +230,8 @@ chrome.runtime.onMessage.addListener(
         if (myNodeList[request.position].childNodes[1] == null) {
           myNodeList[request.position].textContent += " [" + request.risk_rating + "]";
         }
+        /* Since the URL is invalid the email should be marked as such */
+        senderEmail.style.color = "red";
         myNodeList[request.position].style.color = "red";
       }
     }
