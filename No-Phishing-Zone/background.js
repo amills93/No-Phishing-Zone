@@ -1,8 +1,8 @@
 /* Set to true in order to log console output */
-var DEBUG = true;
+var DEBUG = false;
 /* Waits for content.js to send the emailToValidate as a message before making an API call
 and validating the email address */
-chrome.runtime.onMessage.addListener(function(request, sender) {
+chrome.runtime.onMessage.addListener(async function(request, sender) {
 /* If the Request is of type email */
   if (request.type == "email") {
     /* API Overview https://www.ipqualityscore.com/documentation/email-validation/overview */
@@ -38,41 +38,57 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
    }
    /* If the Request is of type URL */
    else if (request.type == 'URL') {
+     /* Boolean Value for Email Validity */
+     const resultCache = {};
+     var result;
      var isValid = false;
      /* API Overview https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview */
      for (let i = 0; i < request.urlToValidate.length; i++) {
-
-       $.getJSON('https://ipqualityscore.com/api/json/url/<API_KEY>/' + request.urlToValidate[i], function( json ) {
-        if (DEBUG) {
-          console.log( "Checking URL: " + request.urlToValidate[i]);
+       if (DEBUG) {
+         console.log("ResultCache " + resultCache[request.urlToValidate[i]])
+         console.log("urlToValidate " + request.urlToValidate[i])
+       }
+       if (resultCache[request.urlToValidate[i]]) {
+         console.log("Duplicate URL: " + resultCache[request.urlToValidate[i]]);
+         returnMessage(request.type, resultCache[request.urlToValidate[i]].valid, resultCache[request.urlToValidate[i]].risk_score, i)
+        } else {
+          await $.getJSON('https://ipqualityscore.com/api/json/url/<API_KEY>/' + request.urlToValidate[i], function( json ) {
+           if (DEBUG) {
+             console.log( "Checking URL: " + request.urlToValidate[i]);
+           }
+        /* If Else statement evaluates the URL address based on the response from the api.
+        Reponse from the API can be described as such:
+          phishing - Is this URL associated with malicious phishing behavior? - Booblean
+          malware - Is this URL associated with malware or viruses? - Booblean
+          parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
+          spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
+          risk_score -
+            Risk Scores < 80 - Safe
+            Risk Scores >= 75 - suspicious - usually due to patterns associated with malicious links.
+            Risk Scores >= 85 - high risk - strong confidence the URL is malicious.
+            Risk Scores = 100 AND Phishing = "true" OR Malware = "true" - indicates confirmed malware or phishing activity in the past 24-48 hours.
+        */
+            if (DEBUG) {
+              console.log("json.phishing: " + json.phishing + " json.malware: " + json.malware + " json.parking: " + json.parking + " json.spamming: " + json.spamming + " json.risk_score: " + json.risk_score)
+             }
+            if (!json.phishing && !json.malware && !json.parking && !json.spamming && json.risk_score < 80) {
+              console.log("Valid URL Address")
+              isValid = true;
+              result = {valid: isValid, risk_score: json.risk_score}
+              console.log("Result " + result.risk_score)
+              resultCache[request.urlToValidate[i]] = result;
+              console.log("resultCache with result: " + resultCache[request.urlToValidate[i]].risk_score)
+              returnMessage(request.type, isValid, json.risk_score, i)
+            } else {
+              console.log("Invalid URL Address")
+              isValid = false;
+              result = {valid: isValid, risk_score: json.risk_score}
+              resultCache[request.urlToValidate[i]] = result;
+              returnMessage(request.type, isValid, json.risk_score, i)
+            }
+           });
         }
-     /* If Else statement evaluates the URL address based on the response from the api.
-     Reponse from the API can be described as such:
-       phishing - Is this URL associated with malicious phishing behavior? - Booblean
-       malware - Is this URL associated with malware or viruses? - Booblean
-       parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
-       spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
-       risk_score -
-         Risk Scores < 80 - Safe
-         Risk Scores >= 75 - suspicious - usually due to patterns associated with malicious links.
-         Risk Scores >= 85 - high risk - strong confidence the URL is malicious.
-         Risk Scores = 100 AND Phishing = "true" OR Malware = "true" - indicates confirmed malware or phishing activity in the past 24-48 hours.
-     */
-     if (DEBUG) {
-       console.log("json.phishing: " + json.phishing + " json.malware: " + json.malware + " json.parking: " + json.parking + " json.spamming: " + json.spamming + " json.risk_score: " + json.risk_score)
       }
-
-         if (!json.phishing && !json.malware && !json.parking && !json.spamming && json.risk_score < 80) {
-           console.log("Valid URL Address")
-           isValid = true;
-           returnMessage(request.type, isValid, json.risk_score, i)
-         } else {
-           console.log("Invalid URL Address")
-           isValid = false;
-           returnMessage(request.type, isValid, json.risk_score, i)
-         }
-        });
-    }
    }
 });
 
