@@ -11,6 +11,8 @@
 - [Environment Setup](#Environment-Setup)
 - [Milestone 2 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_2)
 - [Milestone 2 Recorded Video](https://use.vg/52Yw98)
+- [Milestone 3 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_3)
+- [Milestone 3 Recorded Video](https://app.vidgrid.com/view/CIyM4sw59CXE/)
 
 # Executive Project Summary
 
