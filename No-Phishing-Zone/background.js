@@ -1,5 +1,5 @@
 /* Set to true in order to log console output */
-var DEBUG = false;
+var DEBUG = true;
 /* Waits for content.js to send the emailToValidate as a message before making an API call
 and validating the email address */
 chrome.runtime.onMessage.addListener(async function(request, sender) {
@@ -38,9 +38,13 @@ chrome.runtime.onMessage.addListener(async function(request, sender) {
    }
    /* If the Request is of type URL */
    else if (request.type == 'URL') {
-     /* Boolean Value for Email Validity */
+     /* A Result Cache to store  previous API results for duplicate URLs. Takes the
+     urlToValidate[i] as the name and stores the result*/
      const resultCache = {};
+     /* A variable that stores the isValid and json.risk_score response from the API for
+     duplicate URLs */
      var result;
+    /* Boolean Value for Email Validity */
      var isValid = false;
      /* API Overview https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview */
      for (let i = 0; i < request.urlToValidate.length; i++) {
@@ -56,7 +60,8 @@ chrome.runtime.onMessage.addListener(async function(request, sender) {
            if (DEBUG) {
              console.log( "Checking URL: " + request.urlToValidate[i]);
            }
-        /* If Else statement evaluates the URL address based on the response from the api.
+        /* If Else statement evaluates the URL address based on the response from the api. The results are stored into
+        the result cache using the URL Name (request.urlToValidate[i]) to prevent duplicate API calls.
         Reponse from the API can be described as such:
           phishing - Is this URL associated with malicious phishing behavior? - Booblean
           malware - Is this URL associated with malware or viruses? - Booblean
