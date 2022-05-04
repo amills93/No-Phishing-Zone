@@ -13,6 +13,7 @@
 - [Milestone 2 Recorded Video](https://use.vg/52Yw98)
 - [Milestone 3 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_3)
 - [Milestone 3 Recorded Video](https://app.vidgrid.com/view/CIyM4sw59CXE/)
+- [No-Phishing-Zone v1.0.0 Release](https://github.com/amills93/No-Phishing-Zone/releases/tag/v1.0.0)
 
 ## Executive Summary
 Phishing, smishing, vishing… these attacks are often among the most simplistic to perform by malicious actors, and yet they can often have the most damaging consequences. Ransomware is on the rise, especially in the COVID-19 pandemic era, but did you know that a huge portion of ransomware attacks start with a simple phish? Most social engineering attacks follow the shotgun approach, meaning the attacker likes to send as many of them as possible in order to get a catch. Between a lack of focus and a lack security training, the average Joe is unlikely to spot the difference between a fake link and a real one.  
