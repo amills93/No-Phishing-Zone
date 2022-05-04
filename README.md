@@ -1,12 +1,12 @@
 # No Phishing Zone
 
-- [Executive Project Summary](#executive-project-summary)
+- [Executive Summary](#executive-summary)
 - [Project Goals](#project-goals)
 - [Project Methodology](#project-methodology)
-- [Results & Findings](#results-/-findings)
+- [Results & Findings](#results-and-findings)
 - [Install Instructions](#install-instructions)
 - [Meeting Notes](https://github.com/amills93/No-Phishing-Zone/tree/main/MeetingNotes)
-- [Contributor Information](#Contributors)
+- [Contributor Information](#contributors)
 - [Milestone 1 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_1)
 - [Milestone 1 Recorded Video](https://use.vg/eRSDe9)
 - [Milestone 2 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_2)
@@ -29,7 +29,7 @@ No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used
 ## Project Methodology
 We initially started out with trying to create a cross browser extension that can ingest the currently open email and identify grammar errors, malicious links, and see if the email came from a malicious sender across multiple web email clients. Upon starting the project we began to realize that creating a cross browser extension would not be feasible due to the semesters time constraint so we opted for a Google Chrome Extension. Similarly we decided that we would not be able to have the extension work across multiple web mail clients do to the obfuscation of `class` and `id` variables and eventually decided upon crafting our extension to work with the Google Mail web client. We worked on identifying the emails sender address and all URLS inside the body of the email and eventually decided to scope out the identification of grammar errors due to the difficulty of parsing the Gmail DOM. We also decided to use an API over a static allow/deny lists in order to get real time results and not have to manually update the lists. As a team we worked to identify the different `class` and `id` tags for the email and body, validate them against and API, and adjust the CSS based on the API response. We were able to build a workable chrome extension that can analyze to content of a Google Email inside the Google Mail Web Client and highlight malicious URLs or sender emails as red and valid URLs and emails as green.
 
-## Results / Findings
+## Results and Findings
 During this milestone and after feedback from the professor in Milestone 2 we began researching different APIs to move away from static allow and deny lists. Most of the APIs we looked at required a paid subscription or just produced a text/csv file of known malicious links. We found a free API from [IPQualityScore](https://www.ipqualityscore.com/) that lets users register for an account and receive up to 200 API calls a day and 5000 API calls a month.
 
 * Ingest and the DOM content of a Google Email
