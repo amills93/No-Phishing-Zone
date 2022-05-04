@@ -1,83 +1,54 @@
 # No Phishing Zone
 
 - [Executive Project Summary](#executive-project-summary)
-- [Technical Plan](#technical-plan)
-- [Proposed Project Timeline](#proposed-project-timeline)
-- [Risk List](#risk-list)
-- [Project Methodology](Milestone_1/Project%20Methodology.md#literature-review)
-- [Resources & Technology needed](#resources-needed)
+- [Project Goals](#project-goals)
+- [Project Methodology](#project-methodology)
+- [Results & Findings](#results-/-findings)
+- [Install Instructions](#install-instructions)
+- [Meeting Notes](https://github.com/amills93/No-Phishing-Zone/tree/main/MeetingNotes)
+- [Contributor Information](#Contributors)
+- [Milestone 1 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_1)
 - [Milestone 1 Recorded Video](https://use.vg/eRSDe9)
-- [PowerPoint Presentation](Milestone_1/No%20Phishing%20Zone%20M1%20Presentation.pptx)
-- [Environment Setup](#Environment-Setup)
 - [Milestone 2 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_2)
 - [Milestone 2 Recorded Video](https://use.vg/52Yw98)
 - [Milestone 3 Folder](https://github.com/amills93/No-Phishing-Zone/tree/main/Milestone_3)
 - [Milestone 3 Recorded Video](https://app.vidgrid.com/view/CIyM4sw59CXE/)
 
-# Executive Project Summary
-
+## Executive Summary
 Phishing, smishing, vishing… these attacks are often among the most simplistic to perform by malicious actors, and yet they can often have the most damaging consequences. Ransomware is on the rise, especially in the COVID-19 pandemic era, but did you know that a huge portion of ransomware attacks start with a simple phish? Most social engineering attacks follow the shotgun approach, meaning the attacker likes to send as many of them as possible in order to get a catch. Between a lack of focus and a lack security training, the average Joe is unlikely to spot the difference between a fake link and a real one.  
 
 In a large business organization, an end-user might be instructed to undergo security awareness training courses to instill safe practices for working in the digital age.  But apart from those people, the average person does not receive any kind of training.  What if we could bridge this knowledge gap with security awareness tooling?
 
-No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used social engineering tricks and identify suspicious sending domains, language, key triggers, and perform link validation while a user browses the internet. No-Phishing-Zone will flag those suspicious items and notify the user of the malicious intent leaving the option to continue up to the user. Often users are merely trying to live their lives and do things as quickly as possible, so any tool that helps them stay safe is a good one.  No-Phishing-Zone is meant to supplement a user’s safe browsing habits and catch suspicious behaviors which may have slipped by them.
+No-Phishing-Zone is a Google Chrome extension designed to scan for commonly used social engineering tricks and identify suspicious sending domains and perform link validation while a user browses their Google Mail. No-Phishing-Zone will flag those suspicious items and notify the user of the malicious intent by highlighting the URL or Email as green or red, leaving the option to continue up to the user. Often users are merely trying to live their lives and do things as quickly as possible, so any tool that helps them stay safe is a good one.  No-Phishing-Zone is meant to supplement a user’s safe browsing habits and catch suspicious behaviors which may have slipped by them.
 
-The specific goals for No-Phishing-Zone are to deliver a tool that:
-*	Assists with spotting suspicious language which may be a social engineering attempt
+## Project Goals
 *	Assist in vetting links as legitimate or as suspected to be malicious
 *	Very that the sender of the email is not spoofing an address
-*	Increase the overall safe browsing habits of a user, without having the ability to walk them through a cybersecurity training course
+*	Increase the overall safe email browsing habits of a user, without having the ability to walk them through a cybersecurity training course
 
-# Technical Plan
+## Project Methodology
+We initially started out with trying to create a cross browser extension that can ingest the currently open email and identify grammar errors, malicious links, and see if the email came from a malicious sender across multiple web email clients. Upon starting the project we began to realize that creating a cross browser extension would not be feasible due to the semesters time constraint so we opted for a Google Chrome Extension. Similarly we decided that we would not be able to have the extension work across multiple web mail clients do to the obfuscation of `class` and `id` variables and eventually decided upon crafting our extension to work with the Google Mail web client. We worked on identifying the emails sender address and all URLS inside the body of the email and eventually decided to scope out the identification of grammar errors due to the difficulty of parsing the Gmail DOM. We also decided to use an API over a static allow/deny lists in order to get real time results and not have to manually update the lists. As a team we worked to identify the different `class` and `id` tags for the email and body, validate them against and API, and adjust the CSS based on the API response. We were able to build a workable chrome extension that can analyze to content of a Google Email inside the Google Mail Web Client and highlight malicious URLs or sender emails as red and valid URLs and emails as green.
 
-As the initial stages of research concludes, our team will move toward developing an introductory “Hello World” Google Chrome Extension, so each member of the team can familiarize themselves with Google Extension Development. Once the initial “Hello World” extension has been completed, we begin working on the first part of our extension, which is to read in the currently opened webpage of the user. Once the webpage is read, No-Phishing-Zone will identify if the currently open page is a web-based mail client (i.e., Outlook.com, Yahoo.com, mail.google.com) and will begin processing the data on the webpage.  Chrome extensions can be set up to run upon invocation of extension’s icon on the browser or set to run automatically in the background.  The previously described functionality of running only when the user is on a web client domain will require an initial URL check from the extension to know whether to continue with the rest of the extension’s processes.
+## Results / Findings
+During this milestone and after feedback from the professor in Milestone 2 we began researching different APIs to move away from static allow and deny lists. Most of the APIs we looked at required a paid subscription or just produced a text/csv file of known malicious links. We found a free API from [IPQualityScore](https://www.ipqualityscore.com/) that lets users register for an account and receive up to 200 API calls a day and 5000 API calls a month.
 
-No-Phishing-Zone will process the data from a web-based mail client and the extension will parse the data and identify any phishing attempts. It will start by looking at the sender’s email address and will notify the user if the sender’s email appears to be spoofed or malicious. There have been instances where the sender’s email will appear as support@apple.com in the mail client but upon clicking “Reply” the email address will appear as menanti@tokosepatuubaruu.com or something similarly malicious. Our extension will be able to identify this and alert the user of the sender’s actual email address.
+* Ingest and the DOM content of a Google Email
+* Identify the email and body sections of an email from the DOM
+* Identify the class or ID name of the senders email and email body
+* Successfully parse the DOM and store the email and URLs in the email body
+* Identify an API that can validate and analyze emails and URLs
+* Validate email against an API
+* Validate URLs in the Body of the email against an API
+* Manipulate the CSS of the senders email and the URLs in the email body based on validation results
 
-Once the email address has been verified the extension will begin analyzing the subject and body of the message looking for suspicious language, and links to other websites. Grammar and spelling errors will be identified, and the user will be alerted of the errors and the extension will recommend ignoring the email should it be deemed sufficiently suspicious.  The browser extension will not offer remediation or act, but only make recommendations as an alert system.  Analyzing text for social engineering red flags is a large task which is prone to errors, so only recommendations can be made.  Any links to external websites in the email will be checked and verified to ensure that they are not taking the user to a malicious phishing website. If a user receives an email from a company like T-Mobile, the extension will vet the domains in the body and ensure that they are going to valid T-Mobile domains and not a Google Site or phishing website and will notify the user of the suspicious domain.
+### Testing and Verification
+The team decided to conduct only developmental testing because of time constraint, however, the project team ensured that testing and verification of the solution produced the expected outcome. The outcome come of the testing and verification is as shown below, though we did not involve the use of external tester but supervisory validation which was observed during the development of the solution. In addition, no case study was conducted but we hope that during our futuristic update, we will involve some external users and possibly both professionals and non-professional tester to review the usability and conduct survey to rate features and capabilities or impact the solution have on no savvy technology users.
 
-Our extension will work as an alert tool and is not designed to block or prevent the user from performing an action. It is designed as a tool that can be used by standard users to help them safely browse and read emails daily. We plan on using JavaScript, HTML, and CSS as our tech stack since it is widely supported in Google Chrome Extension Development.  JavaScript will be used to process and parse the webpage while HTML and CSS will be used for the notification feature. We will need to be careful and follow Google Chromes Extension Develop guidelines in how we notify the user and ensure we are not creating more spam.
+### Future Work
+The email and URL API endpoints offer more options that a future user could easily implement in our Chrome Extension to provide more of an analysis, to see the full list of supported API response fields refer to the [Email API Documentation](https://www.ipqualityscore.com/documentation/email-validation/overview) and [URL API Documentation](https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview). Future work could expand on what we did by implementing a more robust analysis of an email address or URL.
 
-### Proposed Project Timeline
+Due to the timeframe of the semester we had to limit our scope to only focus on Chrome Extensions and the Google Email Web Client. Future work can further develop our Extension and expand support to other web browsers and other email web clients. Due to the obfuscation of the DOM elements that identify the senders email address and the body of the email we were only able to identify the `class` and `ids` for Google Emails. However we were able to verify that these `class` and `ids` are unique to all Gmail accounts across multiple browsers. Future researchers can identify the same unique identifiers and apply support to online mail clients like Outlook or Yahoo. Our extension does not analyze attachments in emails, future work can be done to vet the authenticity of an attachment and see if it is malicious or not. Currently we just rely on the fact that if the email is from a suspicious sender it is assume the attachment is malicious. We also used version 2 of the `manifest.json` due to its support of background pages and more importantly `jQuery`. Future work would see that the `manifest` version is updated to version 3, however that would require more time since we would have to re-work how our application does API calls in the background page. [Manifest version 2](https://developer.chrome.com/blog/mv2-transition/) is currently will be end of life (EOL) as of January 2023.
 
-See [Timeline.md](Timeline.md#proposed-project-timeline) for further detail
-
-![image](https://user-images.githubusercontent.com/89640335/154189951-766c152d-0372-494f-8ab0-3187970ab68b.png)
-
-# Risk list
-
-|Risk name (value)   | Impact     | Likelihood | Description |
-|-------------------|------------|------------|-------------|
-|Limited Timeline (24) | 8 | 3 | Project scope exceeds time considerations, see below  |
-|Lack of Web Dev Experience (45) | 9 | 5 | As web development novices, problems might arise from this lack of experience, see below  |
-|Scheduling Issues (20) | 5 | 4 | With each member having active personal, academic, and work lives, there might be issues coming together to meet and work |
-|Product Ineffectiveness (16) | 4 | 4 | Despite earnest intentions, it is possible for an end product to not reach the desired usage functionality as originally intended  |
-|Chrome Extension Changes (40) | 10 | 4 | Should Google change their coding syntax, usage rights, or developer mode availability, the project would need to pivot elsewhere  |
-
-### Limited Timeline
-Due to the length of the semester we are limited to a little over 12 weeks of development time for our extension. In order to mitigate this risk we will utilize the principles of Agile for our software development and project management. Agile gives us the ability to monitor the progress of our project while giving us the ability to create and respond to change. With the agile method we will be able to monitor the progress of our project and adjust the scope as needed due to the timeline constraint of the semester.
-
-### Lack of Web Dev Experience
-Our team has no knowledge in the development of Google Chrome Extensions however we will mitigate the risk by taking the introductory courses provided by Google on how to develop Chrome Extensions. We will also be using the principals of Agile for our software development and project management so we can dynamically react to change in the event developing a Chrome Extension proves more difficult than what we originally planned on. Google and the internet provide plenty of resources so we can mitigate the risk.
-
-# Resources Needed
-
-The following resources have been identified as critical to the success of this project.
-
-|Resource  | Dr. Hale needed? | Investigating Team member | Description |
-|-------------------|---------|---------------------------|-------------|
-|Research databases| No | All | UNO Library allows access to critical resource databases such as IEEE and JSTOR  |
-|Programmning IDE | No | Adam | All members will need access to a useful IDE for beginner web development |
-|Github  | No | Adam | Github repository will be needed to compile production code and project documents |
-|Chrome Web Browser  | No | All | All members will need access to Chrome and its developer mode |
-|Web Development Expertise  | Yes | All | Throughout devlopment, Dr Hale will be a key advisor on roadblocks and best practices |
-|Test Dataset  | No | All | Once the extension is developed, we will need test emails to test the extensions functionality.|
-
-
-
-# Environment Setup
-
-No-Phishing-Zone is a Google Chrome Extension that requires the Google Web Browser and Google Mail account. The application was designed to parse the contents of Gmail emails and identify potential malicious or phishing links and highlight them `red` if malicious and `green` if good. The extension uses the IPQualityScore Malicious URL and Email API and users can register for a free account and get 5000 free API calls a month. While the extension is in development it will not be in the Google Chrome Extension Store. The instructions below will walk you through enabling `developer` mode, for more information on Chrome Development Mode refer to the [Google Chrome Documentation](https://developer.chrome.com/docs/extensions/mv3/faq/). To install the Google Chrome Web Browser proceed to the Google [Chrome Website](https://www.google.com/chrome/index.html?msclkid=f61664c0b52a11eca13a87e11c8e1852) and follow the instructions to install the browser. Once installed follow the steps below:
 ## Install Instructions
 ### Requirements
 * [Google Mail Account](https://support.google.com/mail/answer/56256?hl=en)
@@ -100,3 +71,9 @@ Refer to the links above for installation instructions for the required software
 8. When File Explorer opens navigate to and select the `No-Phishing-Zone` folder in the `No-Phishing-Zone` GitHub folder
 9. Once the extension is enabled navigate to a Google Mail (Gmail) Account and open an email
 10. Feel free to open a PR on our [GitHub Page](https://github.com/amills93/No-Phishing-Zone) for any bug fixes or improvements
+
+## Contributors
+* cms-WebDesign - Chris Schmitt
+* amills93 - Adam Mills
+* BigElkHunter - Dylan Redden
+* ugbebor - Dennis Ugbebor
