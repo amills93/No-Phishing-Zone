@@ -1,5 +1,5 @@
 /* Set to true in order to log console output */
-var DEBUG = true;
+var DEBUG = false;
 /* Variable for the sender of an a given email */
 var senderEmail;
 /* Variable for the email body */
