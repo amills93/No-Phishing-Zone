@@ -12,8 +12,8 @@ chrome.runtime.onMessage.addListener(async function(request, sender) {
       var isValid = false;
   /* If Else statement evaluates the email address based on the response from the api.
   Reponse from the API can be described as such:
-    valid - Does this email address appear valid? - Booblean
-    disposable - Is this email suspected of belonging to a temp or disposable mail service? - Booblean
+    valid - Does this email address appear valid? - Boolean
+    disposable - Is this email suspected of belonging to a temp or disposable mail service? - Boolean
     overall_score -
         0 = invalid email address
         1 = dns valid, unreachable mail server
@@ -63,8 +63,8 @@ chrome.runtime.onMessage.addListener(async function(request, sender) {
         /* If Else statement evaluates the URL address based on the response from the api. The results are stored into
         the result cache using the URL Name (request.urlToValidate[i]) to prevent duplicate API calls.
         Reponse from the API can be described as such:
-          phishing - Is this URL associated with malicious phishing behavior? - Booblean
-          malware - Is this URL associated with malware or viruses? - Booblean
+          phishing - Is this URL associated with malicious phishing behavior? - Boolean
+          malware - Is this URL associated with malware or viruses? - Boolean
           parking - Is the domain of this URL currently parked with a for sale notice? - Boolean
           spamming - Is the domain of this URL associated with email SPAM or abusive email addresses? - Boolean
           risk_score -
