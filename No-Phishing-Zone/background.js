@@ -1,5 +1,5 @@
 /* Set to true in order to log console output */
-var DEBUG = true;
+var DEBUG = false;
 /* Waits for content.js to send the emailToValidate as a message before making an API call
 and validating the email address */
 chrome.runtime.onMessage.addListener(async function(request, sender) {
